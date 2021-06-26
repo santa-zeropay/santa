@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "reset.css";
+@import "top-var.css";
+
+.main-store-image{
+	width: 200px;
+	height: 200px;
+	margin-right:50px;
+}
+.main-store{
+	font-size : 40px;
+	font-weight: bold;
+}
+.main-store-place{
+	font-size : 15px;
+	font-weight: normal;
+}
+.menu-list-image{
+	width: 70px;
+	height: 70px;
+}
+.menu-list{
+	display: flex;
+	margin: 10px;
+	padding: 15px;
+}
