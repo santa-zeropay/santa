@@ -1,17 +1,21 @@
 package com.spring.web.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class testController {
 
-    @RequestMapping("/main")
+    @GetMapping("/main")
     public void main() {
        
     }
-    @RequestMapping("/store")
+    @GetMapping("/store")
     public void store() {
+       
+    }
+    @GetMapping("/login")
+    public void login() {
        
     }
     

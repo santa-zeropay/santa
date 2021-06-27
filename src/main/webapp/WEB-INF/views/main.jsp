@@ -25,6 +25,7 @@
 		</div>
 
 	</div>
+	
 	<div class="main-title">STORE</div>
 
 	<div class="store">

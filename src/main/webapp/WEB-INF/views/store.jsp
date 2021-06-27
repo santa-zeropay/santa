@@ -29,28 +29,30 @@
 	</div>
 	<hr>
 	<div class="menu">
+	<h2>메뉴</h2>
 	<div class="menu-list">
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	</div>
 	<div class="menu-list">
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
-	class="menu-list-image"><ul>메뉴사진 <br> 메뉴가격</ul>
+	class="menu-list-image"><ul>메뉴이름 <br> 메뉴가격</ul>
 	</div>
 	</div>
 	<hr>
+	<div class="plus-store-list">추가 가게들</div>
 	
 	<script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
 </body>
