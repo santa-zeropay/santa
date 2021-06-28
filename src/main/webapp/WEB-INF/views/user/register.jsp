@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입을 환영합니다</title>
+<title>회원가입을 페이지</title>
 <link rel="stylesheet" href="/resources/css/register.css">
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -63,6 +63,6 @@
       </div>
       </div>
 
-
+  
 </body>
 </html>
