@@ -8,19 +8,7 @@
 <link rel="stylesheet" href="resources/css/store.css">
 </head>
 <body>
-	<div class="top-area">
-		<i class="fas fa-bars fa-2x"></i>
-		<div class="list">W.P</div>
-		<div class="list">가게 리스트</div>
-		<div class="list">지도로 보기</div>
-		<div class="list">추천 패키지</div>
-		<div class="list">내 정보</div>
-		<div class="status-var">
-			<i class="fas fa-plus fa-2x"></i> <i class="fas fa-search fa-2x"></i>
-			<i class="fas fa-shopping-cart fa-2x"></i>
-		</div>
-
-	</div>
+	 <jsp:include page="top-var.jsp" flush="false"/>
 
 	<div class="main-store">
 		<img src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
