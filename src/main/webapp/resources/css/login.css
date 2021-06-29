@@ -2,6 +2,9 @@
 
 @import "reset.css";
 
+.tagline2{
+	font-size:40px;
+}
 .login-input {
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -31,7 +34,9 @@
 	margin-bottom: 20px;
 }
 
-#login-button input[type="submit"] {
+#login-button input[type="submit"],
+#login-button input[type="button"] {
+	width:100%;
 	background-color: rgb(166, 234, 231);
 	cursor: pointer;
 	padding: 20px 0px;

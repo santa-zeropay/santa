@@ -12,5 +12,21 @@ public class StoreController {
     public void myStore() {
        
     }
+    @GetMapping("/enrollMenu")
+    public void enrollMenu() {
+       
+    }
+    @GetMapping("/menuList")
+    public void menuList() {
+       
+    }
+    @GetMapping("/menuDetail")
+    public void menuDetail() {
+       
+    }
+    @GetMapping("/modifyMenu")
+    public void modifyMenu() {
+       
+    }
 
 }

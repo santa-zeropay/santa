@@ -8,16 +8,26 @@
 	font-weight: bold;
 }
 
+
 .list {
 	padding: 10px;
+}
+
+ a, a:active{
+	color:black;
+	text-decoration-line:none;
 }
 
 .list:nth-child(2) {
 	padding: 0px 20px;
 	font-size: 40px;
 }
-
-.status-bar {
+.status-var input{
+	height:30px;
+	width:100px;
+}
+.status-var {
+	margin-left: 5px;
 	display: flex;
 	justify-content: center;
 }
@@ -25,4 +35,8 @@
 .status-var .fa-plus, .status-var .fa-search, .status-var .fa-shopping-cart
 	{
 	padding: 5px 15px;
+}
+.fa-shopping-cart{
+	margin-right:20px;
+	padding-right:80px;
 }

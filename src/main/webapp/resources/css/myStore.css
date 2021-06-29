@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 @import "reset.css";
-
 @import "top-var.css";
 
 .main-store-image {
@@ -9,8 +8,13 @@
 	height: 200px;
 	margin-right: 50px;
 }
-
+.main-store, .menu{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .main-store {
+	padding:50px;
 	font-size: 40px;
 	font-weight: bold;
 }
@@ -21,10 +25,14 @@
 }
 
 .menu-list {
+	
 	padding: 30px;
-	margin: 30px;
-	display: flex;
-	justify-content:column;
+	padding-left:300px;
+	display: flex;	
 	width: 100%;
 	font-size: 40px;
+}
+.menu-list:hover{
+	font-weight:bold;
+	  background-color: rgba(166, 234, 231,0.5);
 }

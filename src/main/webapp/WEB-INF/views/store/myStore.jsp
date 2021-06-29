@@ -16,8 +16,8 @@
    </div>
    
    <div class="menu">
-  <a href="aaa" class="menu-list" >메뉴등록</a>
-   <a href="bbb"  class="menu-list">메뉴목록</a>
+  <a href="/store/enrollMenu" class="menu-list" >메뉴등록</a>
+   <a href="/store/menuList"  class="menu-list">메뉴목록</a>
    </div>
 
    

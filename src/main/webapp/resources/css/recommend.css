@@ -3,10 +3,6 @@
 @import "reset.css";
 @import "top-var.css";
 
-.top-area .list:nth-child(5){
-	color:purple;
-}
-
 .main-title {
 	display: flex;
 	align-items: center;

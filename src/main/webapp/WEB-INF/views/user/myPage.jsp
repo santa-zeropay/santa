@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입을 페이지</title>
+<title>myPage</title>
 <link rel="stylesheet" href="/resources/css/login.css">
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -12,12 +12,12 @@
    crossorigin="anonymous">
 </head>
 <body>
+ <jsp:include page="../top-var.jsp" flush="false"/>
    <div class="container">
       <div class="row justify-content-center">
          <div class="login-form">
             <div class="logo-wrapper">
-               <img class="logo" src="../../../resources/images/wp_logo.png">
-               <div class="tagline">Welcome Package ! <br> 회원가입 감사합니다 ♡</div>
+               <div class="tagline2"> 내 정보 </div>
             </div>
             
                <form action="../user/login" method="get" id="login-button">
@@ -55,14 +55,12 @@
                      </div>
                 
              </div>
-                        
-               <input type="submit" value="회원가입"></input> 
                           
                </form>
          </div>
       </div>
       </div>
 
-  
+  <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
 </body>
 </html>

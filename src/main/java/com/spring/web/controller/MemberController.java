@@ -25,4 +25,8 @@ public class MemberController {
     public void cart() {
        
     }
+	@GetMapping("/myPage")
+    public void myPage() {
+       
+    }
 }

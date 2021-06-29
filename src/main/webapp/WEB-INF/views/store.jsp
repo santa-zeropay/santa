@@ -41,7 +41,26 @@
 	</div>
 	<hr>
 	<div class="plus-store-list">추가 가게들</div>
-	
+		<div class="menu-list">
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	</div>
+	<div class="menu-list">
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	<img src="https://i.pinimg.com/originals/e2/92/f5/e292f5c96af57c5eae2fc1c0faf67ef6.jpg"
+	class="menu-list-image"><ul>가게이름 <br> 거리</ul>
+	</div>
 	<script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
 </body>
 </html>
