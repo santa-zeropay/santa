@@ -36,7 +36,8 @@
 				<td>(가격)</td>
 			</tr>
 		</table>
-	</div>
+
 	<a href="/store/myStore" class="goback"> <input type="button" value="돌아가기"></input></a>
+		</div>
 </body>
 </html>
