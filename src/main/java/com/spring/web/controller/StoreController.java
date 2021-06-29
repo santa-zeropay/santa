@@ -2,19 +2,15 @@ package com.spring.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping(value = "/store")
 public class StoreController {
-	@GetMapping("/main")
-    public void main() {
+
+    @GetMapping("/myStore")
+    public void myStore() {
        
     }
-    @GetMapping("/store")
-    public void store() {
-       
-    }
-    @GetMapping("/recommend")
-    public void recommend() {
-       
-    }
+
 }

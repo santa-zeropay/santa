@@ -6,17 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class testController {
 
-    @GetMapping("/main")
-    public void main() {
-       
-    }
-    @GetMapping("/store")
-    public void store() {
-       
-    }
-    @GetMapping("/login")
-    public void login() {
-       
-    }
+    
+   
     
 }
