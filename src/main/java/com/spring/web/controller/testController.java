@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.spring.web.service.UserService;
-import com.spring.web.vo.UserVo;
+import com.spring.web.vo.UserVO;
 
 
 
@@ -23,16 +23,9 @@ public class testController {
 	private UserService userServiceImpl;
 	
 	@RequestMapping("/user01")
-	public List<UserVo> getList() throws Exception{
-		List<UserVo> userVo = userServiceImpl.getList();
+	public List<UserVO> getList() throws Exception{
+		List<UserVO> userVo = userServiceImpl.getList();
 		return userVo;
 	};
-//	
-//	@RequestMapping("/userJoin")
-//	public String userJoin(UserVo vo) {
-//		userServiceImpl.userJoin(vo);		
-//		
-//		//4. 로그인페이지로 이동(주소줄과 view페이지 동시에 insert->login 변경되어야함)
-//		return "redirect:/member/login";
-//		}
+
 }

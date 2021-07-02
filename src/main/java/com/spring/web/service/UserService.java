@@ -2,11 +2,13 @@ package com.spring.web.service;
 
 import java.util.List;
 
-import com.spring.web.vo.UserVo;
+import com.spring.web.vo.UserVO;
 
 public interface UserService {
 
-	List<UserVo> getList() throws Exception;
+	List<UserVO> getList() throws Exception;
 
-	public void userJoin(UserVo vo) throws Exception;
+	public void userJoin(UserVO vo) throws Exception;
+	
+	UserVO getUser(UserVO vo);
 }

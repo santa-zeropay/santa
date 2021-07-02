@@ -6,27 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.web.mapper.UserMapper;
-import com.spring.web.vo.UserVo;
+import com.spring.web.vo.UserVO;
 
 
 @Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired //Mapper와 연결
-	private UserMapper usermapper;
+	private UserMapper userMapper;
 	
 	@Override
-	public List<UserVo> getList() throws Exception {
-		return usermapper.getList();
+	public List<UserVO> getList() throws Exception {
+		return userMapper.getList();
 	}
 
 	@Override
-	public void userJoin(UserVo vo) throws Exception{
+	public void userJoin(UserVO vo) throws Exception{
 		System.out.println("회원가입 동작");
 		if(vo==null) {
 			return;
 		}
-		usermapper.userJoin(vo);
+		userMapper.userJoin(vo);
 	
+	}
+	
+	@Override
+	public UserVO getUser(UserVO vo) {
+
+		return userMapper.getUser(vo);
 	}
 }

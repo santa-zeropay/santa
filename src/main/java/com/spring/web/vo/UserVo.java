@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserVo {
+public class UserVO {
 
 	
 	private int id;
@@ -17,10 +17,10 @@ public class UserVo {
 	private int role;   // 0: 사장님 1:고객
 	private String phonenum;
 	
-	public UserVo() {
+	public UserVO() {
 		
 	}
-	public UserVo(int id, String email, String password, String name, int role, String phonenum) {
+	public UserVO(int id, String email, String password, String name, int role, String phonenum) {
 		super();
 		this.id = id;
 		this.email = email;

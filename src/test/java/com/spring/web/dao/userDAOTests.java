@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.spring.web.mapper.UserMapper;
-import com.spring.web.vo.UserVo;
+import com.spring.web.vo.UserVO;
 
 
 @SpringBootTest
@@ -17,7 +17,7 @@ public class userDAOTests {
 	//회원가입 쿼리 테스트 메서드
 	@Test
 	public void userJoin() throws Exception{
-		UserVo user = new UserVo();
+		UserVO user = new UserVO();
 
 		user.setId(2);					//순서
 		user.setEmail("test");			//회원 이메일(아이디)

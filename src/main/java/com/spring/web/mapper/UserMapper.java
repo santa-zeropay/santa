@@ -4,13 +4,16 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.spring.web.vo.UserVo;
+import com.spring.web.vo.UserVO;
+
 
 
 @Mapper
 public interface UserMapper {
-	  public List<UserVo> getList() throws Exception;
+	  public List<UserVO> getList() throws Exception;
 	  
 	  //회원가입
-	  public void userJoin(UserVo vo);
+	  public void userJoin(UserVO vo);
+	  
+	  public UserVO getUser(UserVO vo);
 }
