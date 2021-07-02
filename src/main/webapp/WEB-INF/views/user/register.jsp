@@ -9,7 +9,11 @@
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-   crossorigin="anonymous">
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>crossorigin="anonymous">
+   
 </head>
 <body>
    <div class="container">
@@ -20,7 +24,7 @@
                <div class="tagline">Welcome Package ! <br> 회원가입 감사합니다 ♡</div>
             </div>
             
-               <form action="../user/login" method="get" id="login-button">
+               <form method="post" id="login-button">
               
                <div class="form-group">
                   <label for="email">이메일</label>     
@@ -49,20 +53,30 @@
                <div class="form-group">
                      <label for="role">역할</label>
                      <div class="login-input">
-                     <input  type="radio" name="role" id="role" value="User" checked="checked">
+                     <input  type="radio" name="role" id="role" value="0" checked="checked">
                      고객
-            	<input  type="radio" name="role" id="role" value="Admin">사장님
+            	<input  type="radio" name="role" id="role" value="1">사장님
                      </div>
                 
              </div>
                         
-               <input type="submit" value="회원가입"></input> 
+               <input type="submit" class="join_button" value="회원가입"></input> 
                           
                </form>
          </div>
       </div>
       </div>
+      
+<script>
 
-  
+$(document).ready(function(){
+	//회원가입 버튼(회원가입 기능 작동)
+	$(".join_button").click(function(){
+		$("#login-button").attr("action", "/user/register");
+		$("#login-button").submit();
+	});
+});
+
+</script>  
 </body>
 </html>
