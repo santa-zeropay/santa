@@ -10,10 +10,14 @@ import com.spring.web.vo.UserVO;
 
 @Mapper
 public interface UserMapper {
-	  public List<UserVO> getList() throws Exception;
-	  
-	  //회원가입
-	  public void userJoin(UserVO vo);
-	  
-	  public UserVO getUser(UserVO vo);
+	public List<UserVO> getList() throws Exception;
+
+	//회원가입
+	public void userJoin(UserVO vo);
+
+	public UserVO getUser(UserVO vo);
+
+	public UserVO getUserById(int id);
+
+	public UserVO userUpdate(UserVO vo);
 }

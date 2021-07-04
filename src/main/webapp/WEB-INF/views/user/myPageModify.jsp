@@ -18,33 +18,33 @@
 		<div class="row justify-content-center">
 			<div class="login-form">
 				<div class="logo-wrapper">
-					<div class="tagline2">내 정보</div>
+					<div class="tagline2">내 정보 수정하기</div>
 				</div>
 
-				<form action="/user/myPageModify" method="get" id="login-button">
+				<form action="/user/myPageUpdate" method="post" id="login-button">
 					<input type="hidden" name="id" value="<c:out value="${user.id}"/>">
 					<div class="form-group">
 						<label for="email">이메일</label> <input type="text"
-							class="login-input" readonly="readonly" id="email" name="email"
+							class="login-input" id="email" name="email"
 							value="<c:out value="${user.email}"/>">
 					</div>
 
 					<div class="form-group">
 						<label for="password">비밀번호</label> <input type="password"
-							class="login-input" id="password" readonly="readonly"
-							name="password" value="<c:out value="${user.password}"/>">
+							class="login-input" id="password" name="password"
+							value="<c:out value="${user.password}"/>">
 					</div>
 
 					<div class="form-group">
 						<label for="name">이름</label> <input type="text"
-							class="login-input" readonly="readonly" id="name" name="name"
+							class="login-input" id="name" name="name"
 							value="<c:out value="${user.name}"/>">
 					</div>
 
 					<div class="form-group">
 						<label for="phonenum">핸드폰번호</label> <input type="text"
-							class="login-input" readonly="readonly" id="phonenum"
-							name="phonenum" value="<c:out value="${user.phonenum}"/>">
+							class="login-input" id="phonenum" name="phonenum"
+							value="<c:out value="${user.phonenum}"/>" />
 					</div>
 
 					<div class="form-group">
@@ -56,20 +56,22 @@
 						</div>
 
 					</div>
-
-					<input type="submit" class="join_button" value="수정하기"></input>
+					<input type="submit" class="join_button" value="저장하기"></input>
 				</form>
 			</div>
 		</div>
 	</div>
 
 	<script>
-		
+		$(document).ready(function() {
+			//저장하기 버튼(저장하기 기능 작동)
+			$(".join_button").click(function() {
+				alert("저장완료");
+			});
+		});
 	</script>
 
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
-
-
 </body>
 </html>
