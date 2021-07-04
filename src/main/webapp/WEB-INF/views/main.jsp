@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome Package</title>
-<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="/resources/css/main.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 </head>
 <body>
-	 <jsp:include page="top-var.jsp" flush="false"/>
-	
+	<jsp:include page="top-var.jsp" flush="false" />
+
 	<div class="main-title">STORE</div>
 
 	<div class="store">
@@ -68,7 +68,8 @@
 			<li class="page-item"><a class="page-link" href="#">Next</a></li>
 		</ul>
 	</nav>
-	<script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/6478f529f2.js"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

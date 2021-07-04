@@ -16,16 +16,8 @@ import com.spring.web.vo.UserVO;
 
 
 @RestController   //Controller + ResponseBody
-@MapperScan(basePackages="com.spring.web.mapper")
 public class testController {
 	
-	@Autowired
-	private UserService userServiceImpl;
 	
-	@RequestMapping("/user01")
-	public List<UserVO> getList() throws Exception{
-		List<UserVO> userVo = userServiceImpl.getList();
-		return userVo;
-	};
-
+	
 }

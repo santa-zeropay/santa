@@ -17,24 +17,28 @@
 			<div class="login-form">
 				<div class="logo-wrapper">
 					<img class="logo" src="../../../resources/images/wp_logo.png">
-					<div class="tagline">Welcome Package ! <br> 로그인 하고 이용부탁드려요</div>
+					<div class="tagline">
+						Welcome Package ! <br> 로그인 하고 이용부탁드려요
+					</div>
 				</div>
-				
-					<form action="/user/login" method="get" id="login-button">
+
+				<form action="/user/login" method="post" id="login-button">
 					<div class="form-group">
-						<label for="email">아이디</label>     
-						<input type="text" class="login-input" id="email" name="email" placeholder="아이디(이메일)를 입력해주세요">
+						<label for="email">아이디</label> <input type="text"
+							class="login-input" id="email" name="email"
+							placeholder="아이디(이메일)를 입력해주세요">
 					</div>
 					<div class="form-group">
-						<label for="password">비밀번호</label> 
-						<input type="password"	class="login-input" id="password" name="password" placeholder="비밀번호를 입렵해주세요">
-					</div>				
-					<input type="submit" value="로그인"></input>	
-					<input type="submit" value="회원가입"></input>				
-					</form>
+						<label for="password">비밀번호</label> <input type="password"
+							class="login-input" id="password" name="password"
+							placeholder="비밀번호를 입렵해주세요">
+					</div>
+					<input type="submit" value="로그인"></input> <input type="submit"
+						value="회원가입"></input>
+				</form>
 			</div>
 		</div>
-		</div>
+	</div>
 
 
 </body>
