@@ -11,6 +11,7 @@
 	<div id="menu_id">가게이름</div>
 
 	<div class="menu_table_wrap">
+		<input type="hidden" name="id" value="<c:out value="${menu.id}"/>">
 		<table class="menu_table">
 			<thead>
 				<tr>
@@ -21,23 +22,31 @@
 			</thead>
 
 			<tr>
-				<td><a href="/store/menuDetail">(menu)</a></td>
-				<td>(가격)</td>
-				<td>(가격)</td>
+			
+				<td><a href="/store/menuDetail"><input type="text"
+						value="<c:out value="${menu.name}"/>"></a></td>
+				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
+				<td><input type="text"
+					value="<c:out value="${menu.discountrate}"/>"></td>
 			</tr>
 			<tr>
-				<td><a href="/store/menuDetail">(menu)</a></td>
-				<td>(가격)</td>
-				<td>(가격)</td>
+				<td><a href="/store/menuDetail"><input type="text"
+						value="<c:out value="${menu.name}"/>"></a></td>
+				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
+				<td><input type="text"
+					value="<c:out value="${menu.discountrate}"/>"></td>
 			</tr>
 			<tr>
-				<td><a href="/store/menuDetail">(menu)</a></td>
-				<td>(가격)</td>
-				<td>(가격)</td>
+				<td><a href="/store/menuDetail"><input type="text"
+						value="<c:out value="${menu.name}"/>"></a></td>
+				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
+				<td><input type="text"
+					value="<c:out value="${menu.discountrate}"/>"></td>
 			</tr>
 		</table>
 
-	<a href="/store/myStore" class="goback"> <input type="button" value="돌아가기"></input></a>
-		</div>
+		<a href="/store/myStore" class="goback"> <input type="button"
+			value="돌아가기"></input></a>
+	</div>
 </body>
 </html>

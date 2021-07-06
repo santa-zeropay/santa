@@ -13,18 +13,25 @@
 		#{phonenum})
 	</insert>
 
+	<insert id="imageEnroll">
+		insert into storeImage(store_id,fileName,uploadPath,uuid) values
+		(#{store_id},#{fileName},#{uploadPath},#{uuid})
+	</insert>
+
 	<select id="getUser" resultType="com.spring.web.vo.UserVO">
 		select * from user where
 		email=#{email} and password=#{password}
 	</select>
 
-	<select id="getUserById"
-		resultType="com.spring.web.vo.UserVO">
-		select * from user where id=#{id}
+	<select id="getUserById" resultType="com.spring.web.vo.UserVO">
+		select * from user where
+		id=#{id}
 	</select>
 	<select id="userUpdate" resultType="com.spring.web.vo.UserVO">
-		update user set email=#{email},
-		password=#{password}, name=#{name}, phonenum=#{phonenum}
+		update user set
+		email=#{email},
+		password=#{password}, name=#{name},
+		phonenum=#{phonenum}
 		WHERE id=#{id}
 	</select>
 </mapper>

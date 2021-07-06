@@ -21,23 +21,23 @@
             </div>
             
                <form action="../main" method="get" id="login-button">
-              
+              	<input type="hidden" name="id" value="<c:out value="${menu.id}"/>">
                <div class="form-group">
                   <label for="name">메뉴 이름</label>     
                   <input type="text" class="login-input" id="name"
-                  name="name" value="example_name" readonly="readonly">
+                  name="name" value="<c:out value="${menu.name}"/>" readonly="readonly">
                </div>
                
                <div class="form-group">
                   <label for="price">가격</label> 
                   <input type="text"   class="login-input" id="price"
-                  name="price" value="example_price" readonly="readonly">
+                  name="price" value="<c:out value="${menu.price}"/>" readonly="readonly">
                </div>      
                 
                <div class="form-group">
                   <label for="discountRate">할인율</label>     
                   <input type="text" class="login-input" id="discountRate"
-                  name="discountRate" value="example_discountRate" readonly="readonly">
+                  name="discountRate" value="<c:out value="${menu.name}"/>" readonly="readonly">
                </div>
                
                <div class="form-group">

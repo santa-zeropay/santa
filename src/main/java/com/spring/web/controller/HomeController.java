@@ -17,4 +17,8 @@ public class HomeController {
     public void recommend() {
        
     }
+    @GetMapping("/map")
+    public void map() {
+       
+    }
 }

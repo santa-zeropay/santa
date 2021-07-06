@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.web.mapper.MenuMapper">
+
+	<insert id="menuJoin">
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into menu values
+		(#{id},#{store_id},#{menuname},#{price},#{discountrate})
+
+	</insert>
+
+	<insert id="imageEnroll">
+		insert into storeImage(store_id,fileName,uploadPath,uuid) values
+		(#{menu_id},#{fileName},#{uploadPath},#{uuid})
+	</insert>
+
+
+	<select id="getMenu" resultType="com.spring.web.vo.MenuVO">
+		select * from menu where
+		menuname=#{menuname}
+	</select>
+
+	<select id="getMenuById" resultType="com.spring.web.vo.MenuVO">
+		select * from store where
+		id=#{id}
+	</select>
+
+</mapper>	

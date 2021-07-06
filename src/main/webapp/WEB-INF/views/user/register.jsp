@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous"></script>
-	>
+	crossorigin="anonymous"></script>>
 
 
 </head>
@@ -32,7 +32,7 @@
 					<div class="form-group">
 						<label for="email">이메일</label> <input type="text"
 							class="login-input" id="email" name="email"
-							placeholder="아이디(이메일)를 입력해주세요">
+							placeholder="아이디(이메일)를 입력해주세요"><span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}"></span>
 					</div>
 
 					<div class="form-group">
@@ -56,9 +56,44 @@
 					<div class="form-group">
 						<label for="role">역할</label>
 						<div class="login-input">
-							<input type="radio" name="role" id="role" value="0"
+							<input type="radio" name="role" id="role0" value="0"
 								checked="checked"> 고객 <input type="radio" name="role"
-								id="role" value="1">사장님
+								id="role1" value="1">사장님
+						</div>
+
+					</div>
+
+
+
+					<div id="appendOwner" style="display: none">
+
+						<div class="form-group">
+							<label for="storenumber">사업자등록번호</label> <input type="text"
+								class="login-input" id="stornumber" name="storenumber"
+								placeholder="사업자번호를 입력해주세요">
+						</div>
+
+
+						<div class="form-group">
+							<label for="storename">가게이름 </label> <input type="text"
+								class="login-input" id="storename" name="storename"
+								placeholder="가게이름을  입력해주세요">
+						</div>
+
+						<div class="form-group">
+							<label for="address">가게주소 </label> <input type="text"
+								class="login-input" id="address" name="address"
+								placeholder="가게주소를 입력해주세요">
+						</div>
+
+
+
+						<div class="form-group">
+							<label for="phonenum">가게사진</label> <input type="file"
+								class="login-input" id="fileItem" name="uploadFile"
+								placeholder="가게사진을 넣어주세요">
+
+							<div id="uploadResult"></div>
 						</div>
 
 					</div>
@@ -66,9 +101,15 @@
 					<input type="submit" class="join_button" value="회원가입"></input>
 
 				</form>
+
+
+
+
+
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	<script>
 
@@ -78,7 +119,147 @@ $(document).ready(function(){
 		$("#login-button").attr("action", "/user/register");
 		$("#login-button").submit();
 	});
+	
+	
+	$("input:radio[name=role]").click(function(){
+
+	 	if($("input:radio[name=role]:checked").val()=='0'){
+	        $("#appendOwner").hide();
+
+		};
+		
+	    if($("input:radio[name=role]:checked").val()=='1'){
+	        $("#appendOwner").show();
+
+		};
+	});
+
+	
+	
+	/* var, method related with attachFile */
+	let regex = new RegExp("(.*?)\.(jpg|png)$");
+	let maxSize = 1048576; //1MB	
+
+	function fileCheck(fileName, fileSize){
+
+		if(fileSize >= maxSize){
+			alert("파일 사이즈 초과");
+			return false;
+		}
+			  
+		if(!regex.test(fileName)){
+			alert("해당 종류의 파일은 업로드할 수 없습니다.");
+			return false;
+		}
+		
+		return true;		
+		
+	}
+
+	$("input[type='file']").on("change", function(e){
+		if($(".imgDeleteBtn").length > 0){
+			deleteFile();
+		}
+		
+		let formData= new FormData();
+		var fileInput=$('input[name="uploadFile"]');
+
+		console.log(fileInput.val)
+		
+		var fileList=fileInput[0].files;
+		
+		console.log(fileList);
+		
+		var fileObj = fileList[0];
+		console.log(fileObj);
+		
+		if(!fileCheck(fileObj.name, fileObj.size)){
+			return false;
+		}
+		
+		formData.append("uploadFile",fileObj)
+		console.log(formData)
+		
+		$.ajax({
+			url: '/user/uploadAjaxAction',
+	    	processData : false,
+	    	contentType : false,
+	    	data : formData,
+	    	type : 'POST',
+	    	dataType : 'json',
+	    	success: function(result){
+	    		console.log(result);
+	    		showUploadImage(result);
+	    	},
+	    	error: function(result){
+	    		alert("이미지파일이아니다");
+	    	}
+	    	
+		});	
+		
+		alert('통과')
+	});
+
+
+	function showUploadImage(uploadResultArr){
+		
+		if(!uploadResultArr || uploadResultArr.length == 0 ){
+			return
+			}
+
+		let uploadResult = $("#uploadResult");
+
+		let obj=uploadResultArr[0];
+		
+		let str ="";
+
+		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+
+		str += "<div id='result_card'>";
+		str += "<img src='/user/display?fileName=" + fileCallPath +"'>";
+		str += "<div class='imgDeleteBtn' data-file='"+ fileCallPath +"'>x</div>";
+		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";	
+		str += "</div>";
+
+		uploadResult.append(str);     
+
+	};
+
+	$("#uploadResult").on("click", ".imgDeleteBtn", function(e){
+		
+		deleteFile();
+		
+	});
+
+		function deleteFile(){
+
+			let targetFile = $(".imgDeleteBtn").data("file");
+			
+			let targetDiv = $("#result_card");
+			
+			$.ajax({
+				url:"/user/deleteFile",
+				data:{fileName:targetFile},
+				dataType:"text",
+				type:"POST",
+				success:function(result){
+					console.log(result);
+					
+					targetDiv.remove();
+					$("input[type='file']").val("");
+				},
+				error:function(result){
+					console.log(result);
+					alert("삭제실패")
+				}
+
+			});
+		}
+	
 });
+
 
 </script>
 </body>

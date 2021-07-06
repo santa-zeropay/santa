@@ -20,7 +20,7 @@
 	</div>
 	<div class="list">W.P</div>
 	<a href="/main" class="list">가게 리스트</a>
-	<a href="/" class="list">지도로 보기</a>
+	<a href="/map" class="list">지도로 보기</a>
 	<a href="/recommend" class="list">추천 패키지</a>
 	<a href="/user/myPage" class="list">내 정보</a>
 	<a href="/store/myStore" class="list">내 가게</a>

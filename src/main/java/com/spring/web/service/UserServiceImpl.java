@@ -1,11 +1,17 @@
 package com.spring.web.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 
 import com.spring.web.mapper.UserMapper;
+import com.spring.web.vo.ImageVO;
+import com.spring.web.vo.StoreVO;
 import com.spring.web.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
@@ -41,5 +47,25 @@ public class UserServiceImpl implements UserService{
 	public UserVO userUpdate(UserVO vo) {
 		return userMapper.userUpdate(vo);
 		
+	}
+
+	@Override
+	public void imageEnroll(ImageVO vo) {
+	
+		log.info("이미지 등록 동작");
+		userMapper.imageEnroll(vo);
+		
+	}
+
+	@Override
+	public Map<String, String> validateHandling(Errors errors) {
+		 Map<String, String> validatorResult = new HashMap<>();
+
+	        for (FieldError error : errors.getFieldErrors()) {
+	            String validKeyName = String.format("valid_%s", error.getField());
+	            validatorResult.put(validKeyName, error.getDefaultMessage());
+	        }
+
+	        return validatorResult;
 	}
 }
