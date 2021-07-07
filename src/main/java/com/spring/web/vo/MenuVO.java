@@ -1,5 +1,7 @@
 package com.spring.web.vo;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,8 +22,8 @@ discountrate double
 public class MenuVO {
 	private int id;
 	private int store_id;
-	private String name;
+	private String menuname;
 	private int price;
-	private String image; 
 	private double discountrate;
+	private List<ImageVO> imageList; 
 }

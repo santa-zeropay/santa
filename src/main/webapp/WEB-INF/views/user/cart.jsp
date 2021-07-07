@@ -14,6 +14,7 @@
 
 
 	<div class="container">
+	<input type="hidden" name="id" value="<c:out value="${menu.id}"/>">
 
 		<div class="item">
 			<div class="item_list">이미지</div>
@@ -22,10 +23,10 @@
 			<div class="item_list">수량</div>
 		</div>
 		<div class="item">
-			<div class="item_list">#</div>
-			<div class="item_list">#</div>
-			<div class="item_list">#</div>
-			<div class="item_list">#</div>
+			<div class="item_list"><input type="text" value="<c:out value="${cart.id}"/>"></div>
+			<div class="item_list"><input type="text" name="menuname" value="<c:out value="${menu.name}"/>"></div>
+			<div class="item_list"><input type="text" name="price"value="<c:out value="${menu.price}"/>"></div>
+			<div class="item_list"><input type="text" name="count"value="<c:out value="${order_menu.count}"/>"></div>
 		</div>
 		<div class="item">
 			<div class="item_list">@</div>

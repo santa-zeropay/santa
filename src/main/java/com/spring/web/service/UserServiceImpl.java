@@ -50,14 +50,6 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void imageEnroll(ImageVO vo) {
-	
-		log.info("이미지 등록 동작");
-		userMapper.imageEnroll(vo);
-		
-	}
-
-	@Override
 	public Map<String, String> validateHandling(Errors errors) {
 		 Map<String, String> validatorResult = new HashMap<>();
 

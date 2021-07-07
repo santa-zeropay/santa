@@ -30,27 +30,27 @@
 				<form method="post" id="login-button">
 
 					<div class="form-group">
-						<label for="email">이메일</label> <input type="text"
+						<label for="email">이메일 <span> 이메일 형식 지켜주세요 ex ) aa@naver.com</span></label> <input type="text"
 							class="login-input" id="email" name="email"
-							placeholder="아이디(이메일)를 입력해주세요"><span th:style="${'color: red; font-size:11px;'}" th:text="${valid_email}"></span>
+							placeholder="아이디(이메일)를 입력해주세요"><span text="${valid_email}"></span>
 					</div>
 
 					<div class="form-group">
-						<label for="password">비밀번호</label> <input type="password"
+						<label for="password">비밀번호 <span>	비밀번호는 8자 이상 20자 이하로 입력해주세요.</span></label> <input type="password"
 							class="login-input" id="password" name="password"
-							placeholder="비밀번호를 입렵해주세요">
+							placeholder="비밀번호를 입렵해주세요"><span text="${valid_password}"></span>
 					</div>
 
 					<div class="form-group">
 						<label for="name">이름</label> <input type="text"
 							class="login-input" id="name" name="name"
-							placeholder="이름을 입력해주세요">
+							placeholder="이름을 입력해주세요"><span text="${valid_name}"></span>
 					</div>
 
 					<div class="form-group">
-						<label for="phonenum">핸드폰번호</label> <input type="text"
+						<label for="phonenum">핸드폰번호   <span>	ex) 010########</span></label> <input type="text"
 							class="login-input" id="phonenum" name="phonenum"
-							placeholder="핸드폰번호를 입력해주세요">
+							placeholder="핸드폰번호를 입력해주세요"><span text="${valid_phonenum}"></span>
 					</div>
 
 					<div class="form-group">
@@ -112,7 +112,6 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	<script>
-
 $(document).ready(function(){
 	//회원가입 버튼(회원가입 기능 작동)
 	$(".join_button").click(function(){

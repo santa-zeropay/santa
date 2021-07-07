@@ -17,8 +17,6 @@ public interface UserService {
 	public UserVO getUserById(int id);
 
 	public UserVO userUpdate(UserVO vo);
-	
-	public void imageEnroll(ImageVO vo);
 
 	public Map<String, String> validateHandling(Errors errors);
 }

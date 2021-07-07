@@ -11,20 +11,18 @@ import com.spring.web.vo.UserVO;
 
 @Mapper
 public interface UserMapper {
-	public List<UserVO> getList() throws Exception;
-
+	
 	//회원가입
 	public void userJoin(UserVO vo);
 	
+	//로그인
 	public UserVO getUser(UserVO vo);
 
-	//정보확인
+	//내정보확인
 	public UserVO getUserById(int id);
 
 	//정보수정
 	public UserVO userUpdate(UserVO vo);
-	
-	public void imageEnroll(ImageVO vo);
 	
 
 }

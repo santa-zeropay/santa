@@ -6,16 +6,18 @@
 .main-store-image {
 	width: 200px;
 	height: 200px;
-	margin-right: 50px;
+	margin:0 150px;
+	padding-left:600px;
 }
 .main-store, .menu{
 	display: flex;
-	justify-content: center;
+	justify-content:space-around;
 	align-items: center;
-}
-.main-store {
 	padding:50px;
-	font-size: 40px;
+}
+.main-store input{
+	border:none;
+	font-size: 70px;
 	font-weight: bold;
 }
 

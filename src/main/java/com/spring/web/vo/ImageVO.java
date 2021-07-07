@@ -12,7 +12,7 @@ import lombok.ToString;
 public class ImageVO {
 
 	 private int store_id;
-	 
+	 private int menu_id;
 	 private String uuid;
 	 private String fileName;
 	 private String uploadPath;

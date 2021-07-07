@@ -8,9 +8,9 @@ import com.spring.web.vo.UserVO;
 @Mapper
 public interface StoreMapper {
 
+	//가게 등록
 	public void storeJoin(StoreVO vo);
 	
-	public StoreVO getStoreById(int id);
-	
-	public StoreVO getStore(StoreVO vo);
+	//userid로 가게 불러오기
+	public StoreVO getStoreByUserId(int id);
 }

@@ -21,7 +21,7 @@
 					<div class="tagline2">메뉴등록</div>
 				</div>
 
-				<form method="post" id="Login-button">
+				<form method="post" id="login-button">
 
 					<div class="form-group">
 						<label for="menuname">메뉴 이름</label> <input type="text"
@@ -44,10 +44,12 @@
 					<div class="form-group">
 						<label for="image">메뉴사진 </label> <input type="file"
 							class="login-input" id="fileItem" name="uploadFile">
+						<div id="uploadResult"></div>
 					</div>
+					<input type="button" value="메뉴등록" class="menuEnrollBtn"></input> <input
+						type="button" value="돌아가기" class="returnMyStoreBtn"></input> <input
+						type="hidden" name="store_id" value="${store_id}">
 
-					<input type="button" value="메뉴등록" id="menuEnrollBtn"></input> <input
-						type="button" value="돌아가기" id="returnMyStoreBtn"></input>
 				</form>
 			</div>
 		</div>
@@ -55,14 +57,17 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 $(document).ready(function(){
-	$("#menuEnrollBtn").click(function(){
-		$("#Login-button").attr("action", "/store/enrollMenuPlay");
-		$("#Login-button").submit();
+	$(".menuEnrollBtn").click(function(){
+		console.log("asdasdd")
+	
+		$("#login-button").attr("action", "/store/enrollMenuPlay");
+		$("#login-button").submit();
 	});
 	
-	$("#returnMyStoreBtn").click(function(){
-		$("#Login-button").attr("action", "/store/myStore");
-		$("#Login-button").submit();
+	$(".returnMyStoreBtn").click(function(){
+		
+		$("#login-button").attr("action", "/store/myStore");
+		$("#login-button").submit();
 	});
 	
 

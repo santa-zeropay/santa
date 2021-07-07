@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,11 @@
 <link rel="stylesheet" href="/resources/css/menuList.css">
 </head>
 <body>
-	<div id="menu_id">가게이름</div>
+	<div id="menu_id"><input type="text" readonly="readonly" id="storename"
+			name="storename" value="<c:out value="${store.storename}"/>"></div>
 
 	<div class="menu_table_wrap">
-		<input type="hidden" name="id" value="<c:out value="${menu.id}"/>">
+	
 		<table class="menu_table">
 			<thead>
 				<tr>
@@ -20,29 +22,18 @@
 					<td class="th_column_3">할인율</td>
 				</tr>
 			</thead>
+			<c:forEach items="${menus}" var="menu">
+				<tr class="menu-list">
 
-			<tr>
+					<td><a href="/store/menuDetail?id=<c:out value="${menu.id}"/>">
+					<input type="text"
+							value="<c:out value="${menu.menuname}"/>"></a></td>
+					<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
+					<td><input type="text"
+						value="<c:out value="${menu.discountrate}"/>"></td>
+				</tr>
+			</c:forEach>
 			
-				<td><a href="/store/menuDetail"><input type="text"
-						value="<c:out value="${menu.name}"/>"></a></td>
-				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
-				<td><input type="text"
-					value="<c:out value="${menu.discountrate}"/>"></td>
-			</tr>
-			<tr>
-				<td><a href="/store/menuDetail"><input type="text"
-						value="<c:out value="${menu.name}"/>"></a></td>
-				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
-				<td><input type="text"
-					value="<c:out value="${menu.discountrate}"/>"></td>
-			</tr>
-			<tr>
-				<td><a href="/store/menuDetail"><input type="text"
-						value="<c:out value="${menu.name}"/>"></a></td>
-				<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
-				<td><input type="text"
-					value="<c:out value="${menu.discountrate}"/>"></td>
-			</tr>
 		</table>
 
 		<a href="/store/myStore" class="goback"> <input type="button"

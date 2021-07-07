@@ -29,7 +29,8 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public StoreVO getStore(StoreVO svo) {
-		return storeMapper.getStore(svo);
+	public StoreVO getStoreByUserId(int id) {
+		return storeMapper.getStoreByUserId(id);
+		
 	}
 }

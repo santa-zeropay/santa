@@ -1,6 +1,8 @@
 package com.spring.web.service;
 
 
+import java.util.List;
+
 import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
 import com.spring.web.vo.StoreVO;
@@ -10,11 +12,9 @@ public interface MenuService {
 
 	public void menuJoin(MenuVO vo);
 
-	public MenuVO getMenu(MenuVO vo);
+	public MenuVO getMenuById(int id);
 
-	public StoreVO getMenuById(int id);
-	
-	public void imageEnroll(ImageVO vo);
+	public List<MenuVO> getMenuByStoreId(int id);
 
 
 }

@@ -1,6 +1,8 @@
 package com.spring.web.service;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.spring.web.mapper.MenuMapper;
@@ -26,22 +28,14 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	public MenuVO getMenu(MenuVO vo) {
-		return menuMapper.getMenu(vo);
+	public MenuVO getMenuById(int id) {
+		return menuMapper.getMenuById(id);
 	}
 
 	@Override
-	public void imageEnroll(ImageVO vo) {
-		log.info("이미지등록시작");
-		menuMapper.imageEnroll(vo);
+	public List<MenuVO> getMenuByStoreId(int id) {
+		return menuMapper.getMenuByStoreId(id);
 	}
-
-	@Override
-	public StoreVO getMenuById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 
 }

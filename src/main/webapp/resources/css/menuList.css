@@ -1,31 +1,33 @@
 @charset "UTF-8";
 
-#menu_id {
+#menu_id input {
+	border: none;
 	width: 90%;
 	padding: 30px;
 	margin-top: 30px;
-	
 	text-align: center;
 	border-collapse: collapse;
-	font-size: 40px;
+	font-size: 50px;
+	font-weight: bold;
 }
 
 .menu_table_wrap {
-	 text-align: center;
+	text-align: center;
 }
 
 .menu_table {
-	border-spacing:20px 30px;
-	
+	border-spacing: 20px 30px;
 	width: 100%;
 	text-align: center;
-	justify-content:center;
+	justify-content: center;
 }
-.menu_table tr{
-	border:1px solid;
+
+.menu_table tr {
+	border: 1px solid;
 }
+
 .menu_table td {
-	padding: 10px ;
+	padding: 20px;
 }
 
 .menu_table thead {
@@ -38,11 +40,16 @@
 	font-weight: 500;
 }
 
-.th_column_1,
-.th_column_2 ,
-.th_column_3 
- {
+.menu-list input {
+	border: none;
+	font-size: 20px;
+	cursor:pointer;
+	text-align: center;
+}
+
+.th_column_1, .th_column_2, .th_column_3 {
 	width: 120px;
+	font-size: 20px;
 }
 
 .table_empty {
@@ -52,14 +59,14 @@
 	font-size: 25px;
 }
 
-.goback input[type="button"]{
-	width:40%;
-	border:none;
-	font-size : 30px;
+.goback input[type="button"] {
+	width: 40%;
+	border: none;
+	cursor: pointer;
+	font-size: 30px;
 	text-align: center;
-	justify-content:center;
+	justify-content: center;
 	background-color: rgb(166, 234, 231);
 	padding: 20px 0px;
 	border-radius: 15px;
-
 }

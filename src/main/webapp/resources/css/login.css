@@ -21,7 +21,7 @@
 	max-width: 100px;
 }
 
-#login-button {
+#login-button{
 	display: flex;
 	flex-direction: column;
 }
@@ -35,7 +35,8 @@
 }
 
 #login-button input[type="submit"],
-#login-button input[type="button"] {
+#login-button input[type="button"]
+{
 	width:100%;
 	background-color: rgb(166, 234, 231);
 	cursor: pointer;
@@ -74,4 +75,8 @@
 .logo-wrapper .logo {
 	max-width: 150px;
 	margin: 0 auto;
+}
+.form-group span{
+	color: red; 
+	font-size:13px;
 }
