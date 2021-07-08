@@ -119,15 +119,13 @@ public class UserController {
 		int uid = user.getId();
 		StoreVO storevo =storeServiceImpl.getStoreByUserId(uid);
 		int store_id=storevo.getId();
-
 		if(user!=null) {
 			httpSession.setAttribute("id", user.getId());
 			httpSession.setAttribute("email", user.getEmail());
 			httpSession.setAttribute("password", user.getPassword());
 			httpSession.setAttribute("store_id", store_id);
 
-			log.info(""+store_id);
-			return "/main";
+			return "redirect:/main";
 		}
 		return "/user/loginPage";
 	}

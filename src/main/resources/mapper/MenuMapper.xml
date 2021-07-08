@@ -19,7 +19,17 @@
 		</selectKey>
 		insert into menu values
 		(#{id},#{store_id},#{menuname},#{price},#{discountrate})
-
 	</insert>
+	<update id="menuUpdate">
+		UPDATE menu set
+		menuname = #{menuname},
+		price =
+		#{price},
+		discountrate = #{discountrate}
+		WHERE id = #{id}
+	</update>
+	<delete id="menuDelete">
+		DELETE FROM menu WHERE id=#{id}
+	</delete>
 
 </mapper>	

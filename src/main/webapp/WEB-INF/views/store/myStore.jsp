@@ -12,11 +12,12 @@
 	<jsp:include page="../top-var.jsp" flush="false" />
 
 	<div class="main-store">
-			<input type="hidden" name="id" value="<c:out value="${store.id}"/>">
-		<img
-			src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-			class="main-store-image"><input type="text" readonly="readonly" id="storename"
-			name="storename" value="<c:out value="${store.storename}"/>">
+		<input type="hidden" name="id" value="<c:out value="${store.id}"/>">
+			<div class="form_section main-store-image">
+				<div id="uploadResult"></div>
+		</div>
+		<input type="text" readonly="readonly" id="storename" name="storename"
+			value="<c:out value="${store.storename}"/>">
 	</div>
 
 	<div class="menu">
@@ -27,6 +28,45 @@
 
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<script>
+$(document).ready(function(){
+
+	console.log(${store_id});
+
+$.ajax({
+	url:"/user/getImageList",
+	data:{"id" : ${store_id}},
+	dataType:"JSON",
+	type:"POST",
+	success:function(result){
+		let str="";
+		let uploadResult = $("#uploadResult");
+		let obj=result[0];
+	
+		let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+		str += "<div id='result_card'";
+		str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
+		str += ">";
+		str += "<img src='/user/display?fileName=" + fileCallPath +"'>";
+		str += "</div>";		
+		
+		uploadResult.html(str);		
+	},
+	error:function(result){
+		console.log(result);
+		alert("삭제실패")
+	}
+
+});
+
+
+
+});
+
+</script>
 
 </body>
 </html>

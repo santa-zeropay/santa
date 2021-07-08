@@ -1,24 +1,57 @@
 package com.spring.web.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.spring.web.service.ImageService;
+import com.spring.web.service.MenuService;
+import com.spring.web.service.StoreService;
+import com.spring.web.vo.MenuVO;
+import com.spring.web.vo.StoreVO;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
+	private final StoreService storeServiceImpl;
+	private final MenuService menuServiceImpl;
+
 	@GetMapping("/main")
-    public void main() {
-       
-    }
-    @GetMapping("/store")
-    public void store() {
-       
-    }
-    @GetMapping("/recommend")
-    public void recommend() {
-       
-    }
-    @GetMapping("/map")
-    public void map() {
-       
-    }
+	public void main(HttpSession httpSession,Model model) {
+		int sid = (int) httpSession.getAttribute("store_id");
+		
+		List<StoreVO> storeList = storeServiceImpl.getStoreList();
+		log.info("storeList는 "+storeList);
+		model.addAttribute("storeList", storeList);
+	}
+	@GetMapping("/store")
+	public void store(int id,Model model) {
+
+		StoreVO store = storeServiceImpl.getStoreById(id);
+		List<MenuVO> menus=menuServiceImpl.getMenuByStoreId(id);
+		int category = store.getCategory();
+		List<StoreVO> storeCategory = storeServiceImpl.getStoreListByCategory(category);
+		
+		log.info("menu"+menus);
+		model.addAttribute("store",store);
+		model.addAttribute("menus", menus);
+		model.addAttribute("storeCategory", storeCategory);
+
+	}
+	@GetMapping("/recommend")
+	public void recommend() {
+
+	}
+	@GetMapping("/map")
+	public void map() {
+
+	}
 }

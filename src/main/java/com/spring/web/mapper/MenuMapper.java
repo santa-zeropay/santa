@@ -21,4 +21,9 @@ public interface MenuMapper {
 
 	//store_id로 메뉴들 가져오기(메뉴리스트)
 	public List<MenuVO> getMenuByStoreId(int id);
+	
+	//메뉴 수정
+	public MenuVO menuUpdate(MenuVO vo);
+	//메뉴 삭제
+	public void menuDelete(int id);
 }

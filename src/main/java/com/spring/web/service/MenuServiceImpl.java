@@ -38,4 +38,16 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 
+	@Override
+	public MenuVO menuUpdate(MenuVO vo) {
+		return menuMapper.menuUpdate(vo);
+	}
+
+	@Override
+	public void menuDelete(int id) {
+		menuMapper.menuDelete(id);
+		
+	}
+
+
 }

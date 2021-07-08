@@ -137,7 +137,7 @@ $(document).ready(function(){
 	
 	/* var, method related with attachFile */
 	let regex = new RegExp("(.*?)\.(jpg|png)$");
-	let maxSize = 1048576; //1MB	
+	let maxSize = 10485760; //1MB	
 
 	function fileCheck(fileName, fileSize){
 

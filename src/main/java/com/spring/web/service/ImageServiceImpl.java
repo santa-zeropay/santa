@@ -31,5 +31,10 @@ public class ImageServiceImpl implements ImageService{
 		imageMapper.MenuImageEnroll(vo);	
 	}
 
+	@Override
+	public List<ImageVO> getImageList(int id) {
+		return imageMapper.getImageList(id);
+	}
+
 
 }

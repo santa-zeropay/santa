@@ -9,6 +9,7 @@
 <body>
 <div id="map" style="width:1850px;height:850px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b464bd1a1b138cbb522d292c53f2214"></script>
+	
 	<script>
 		var container = document.getElementById('map');
 		var options = {
@@ -18,15 +19,23 @@
 
 		var map = new kakao.maps.Map(container, options);
 		// 마커가 표시될 위치입니다 
+		for(){
+			var markerPosition2 = new kakao.maps.LatLng(store.x,store.y);
+			
+		}
 		var markerPosition  = new kakao.maps.LatLng(37.569631737697726, 126.98218848643019); 
 
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
-		    position: markerPosition
+			position: markerPosition
+		});
+		var marker2 = new kakao.maps.Marker({
+			position: markerPosition2
 		});
 
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
+		marker2.setMap(map);
 		
 	</script>
 

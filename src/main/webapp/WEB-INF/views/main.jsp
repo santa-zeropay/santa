@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,47 +18,17 @@
 	<div class="main-title">STORE</div>
 
 	<div class="store">
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
+		<c:forEach items="${storeList}" var="store">
+			<div class="store-list">
+				<a href="/store?id=<c:out value="${store.id}"/>"> <img
+					src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
+					style="display: block;" class="store-list-image"> <c:out
+						value="${store.storename}" />
+				</a>
+			</div>
+		</c:forEach>
 	</div>
-	<div class="store">
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-		<div class="store-list">
-			<img src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				style="display: block;" class="store-list-image">가게 이름
-		</div>
-	</div>
+
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<li class="page-item disabled"><a class="page-link" href="#"

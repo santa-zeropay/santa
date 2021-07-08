@@ -1,5 +1,7 @@
 package com.spring.web.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.spring.web.vo.ImageVO;
@@ -11,4 +13,7 @@ public interface ImageMapper {
 	
 	//메뉴 이미지 등록
 	public void MenuImageEnroll(ImageVO vo);
+	//이미지 보여주기
+	public List<ImageVO> getImageList(int id);
+	
 }

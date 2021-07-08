@@ -3,9 +3,18 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.web.mapper.StoreMapper">
-	
-	<select id="getStoreByUserId" resultType="com.spring.web.vo.StoreVO">
+	<select id="getStoreList" resultType="com.spring.web.vo.StoreVO">
+		select * from store
+	</select>
+	<select id="getStoreById" resultType="com.spring.web.vo.StoreVO">
+		select * from store where id=#{id}
+	</select>
+	<select id="getStoreByUserId"
+		resultType="com.spring.web.vo.StoreVO">
 		select * from store where user_id=#{id}
+	</select>
+		<select id="getStoreListByCategory" resultType="com.spring.web.vo.StoreVO">
+		SELECT * from store where category!=#{category}
 	</select>
 	<insert id="storeJoin">
 		<selectKey resultType="int" keyProperty="id" order="AFTER">
@@ -13,7 +22,7 @@
 			LAST_INSERT_ID()
 		</selectKey>
 		insert into store values
-		(#{id},#{user_id},#{storename},#{address},#{x},#{y},#{storenumber})
+		(#{id},#{user_id},#{storename},#{address},#{x},#{y},#{storenumber},#{category})
 
 	</insert>
 

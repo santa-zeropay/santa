@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.spring.web.service.StoreService;
 import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
 import com.spring.web.vo.StoreVO;
+import com.spring.web.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -72,14 +74,31 @@ public class MenuController {
 		log.info(" 메뉴 디테일의 store 아이디 "+sid);
 		int mid = vo.getId();
 		log.info("메뉴의 id : "+mid);
-		//서비스안의 회원정보보기 메서드 호출
+	
 		MenuVO menu = menuServiceImpl.getMenuById(mid);
 		
 		model.addAttribute("menu", menu);
 
 	}
-	@GetMapping("/modifyMenu")
-	public void modifyMenu() {
 
+	@GetMapping("/modifyMenu")
+	public String modifyMenu(MenuVO vo,Model model) {
+		int mid = vo.getId();
+		model.addAttribute("menu", menuServiceImpl.getMenuById(mid));
+		return "store/modifyMenu";
+	}
+	@PostMapping("/UpdateMenu")
+	public String update(MenuVO vo) {
+		log.info(""+vo);
+		menuServiceImpl.menuUpdate(vo);
+		log.info("수정완료");
+		return "redirect:/store/menuDetail?id="+vo.getId();
+	}
+	
+	@DeleteMapping("/deleteMenu")
+	public String deleteMenu(MenuVO vo) {
+		int id=vo.getId();
+		menuServiceImpl.menuDelete(id);
+		return "redirect:/store/meneList";
 	}
 }

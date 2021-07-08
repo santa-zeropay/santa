@@ -29,4 +29,5 @@ public class StoreVO {
 	private double y;	 
 	private String storenumber;
 	private List<ImageVO> imageList;
+	private int category;
 }

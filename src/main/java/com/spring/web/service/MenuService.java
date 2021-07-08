@@ -16,5 +16,7 @@ public interface MenuService {
 
 	public List<MenuVO> getMenuByStoreId(int id);
 
-
+	public MenuVO menuUpdate(MenuVO vo);
+	
+	public void menuDelete(int id);
 }
