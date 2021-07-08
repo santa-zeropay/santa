@@ -37,12 +37,13 @@
 	<hr>
 	<div class="plus-store-list">추가 가게들</div>
 	<div class="store">
-		<c:forEach items="${storeCategory}" var="store">
+		<c:forEach items="${dist3}" var="dist">
 			<div class="store-list">
-				<a href="/store?id=<c:out value="${store.id}"/>"> <img
+				<a href="/store?id=<c:out value="${dist.id}"/>"> <img
 					src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
 					style="display: block;" class="store-list-image"> <c:out
-						value="${store.storename}" />
+						value="${dist.name}" /> <c:out
+						value="${dist.distance}" />
 				</a>
 			</div>
 		</c:forEach>

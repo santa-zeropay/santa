@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.web.mapper.DistMapper">
+	
+	<select id="getDist3" resultType="com.spring.web.vo.DistVO">
+		select * from dist order by distance limit 3;
+	</select>
+	
+	<insert id="distJoin">
+	insert into dist values (#{id}, #{name}, #{distance})
+	</insert>
+	
+	<delete id="truncateDist">
+	truncate table dist
+	</delete>
+</mapper>	
