@@ -3,10 +3,28 @@
 @import "reset.css";
 @import "top-var.css";
 
+.main-store{
+	display: flex;
+}
+.big-menu,
+.big-plus-store{
+	padding-top:20px;
+	padding-left:30px;
+	font-weight:bold;
+	font-size: 20px;
+}
+.menu-cart{
+	margin-right:30px;
+	float:right;
+	background-color:gray;
+	width:300px;
+	height:500px;
+}
 .main-store-image{
+	margin:50px;
+	margin-bottom:0px;
 	width: 200px;
 	height: 200px;
-	margin-right:50px;
 }
 .main-store input{
 	border:none;
@@ -17,16 +35,16 @@
 	font-size : 15px;
 	font-weight: normal;
 }
-.menu-list-image{
-	width: 70px;
-	height: 70px;
+.menu-list-image , .store-list-image{
+	width: 150px;
+	height: 150px;
 	margin:20px;
 }
-.menu-list{
+.menu-list , .store-list{
 	display: flex;
 	margin: 10px;
 	padding: 15px;
 }
-.menu-list ul{
+.menu-list ul,.store-list ul{
 	margin:25px 10px;
 }

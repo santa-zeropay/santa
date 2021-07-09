@@ -26,6 +26,7 @@
 	</div>
 
 
+
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
 
@@ -46,7 +47,7 @@ $.ajax({
 		let uploadResult = $("#uploadResult");
 		let obj=result[0];
 	
-		let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+		let fileCallPath = encodeURIComponent(obj.uploadPath +"/s_" + obj.uuid + "_" + obj.fileName);
 		str += "<div id='result_card'";
 		str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
 		str += ">";

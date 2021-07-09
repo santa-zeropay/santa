@@ -56,8 +56,8 @@ public class HomeController {
 
 			double dis = distServiceImpl.distance(x, y, cax, cay);
 			dvo.setId(i);
+			dvo.setStore_id(catestore.getId());
 			dvo.setName(name);
-
 			dvo.setDistance(dis);
 			
 			distServiceImpl.distJoin(dvo);
@@ -76,12 +76,25 @@ public class HomeController {
 		distServiceImpl.truncateDist();
 
 	}
+	@GetMapping("/plusStore")
+	public void plusStore(int id,Model model) {
+		StoreVO store = storeServiceImpl.getStoreById(id);
+		List<MenuVO> menus=menuServiceImpl.getMenuByStoreId(id);
+		
+		model.addAttribute("store",store);
+		model.addAttribute("menus", menus);
+
+	
+	}
 	@GetMapping("/recommend")
 	public void recommend() {
 
 	}
 	@GetMapping("/map")
-	public void map() {
-
+	public void map(Model model) {
+		List<StoreVO> storeList = storeServiceImpl.getStoreList();
+		log.info("~~~~~~");
+		model.addAttribute("storeList", storeList);
 	}
+
 }

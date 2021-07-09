@@ -9,7 +9,7 @@
 	</select>
 	
 	<insert id="distJoin">
-	insert into dist values (#{id}, #{name}, #{distance})
+	insert into dist values (#{id}, #{store_id}, #{name}, #{distance})
 	</insert>
 	
 	<delete id="truncateDist">
