@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.web.dto.StoreAndImageDto;
+import com.spring.web.dto.StoreListAndImageDto;
 import com.spring.web.mapper.StoreMapper;
 import com.spring.web.mapper.UserMapper;
 import com.spring.web.vo.ImageVO;
@@ -47,5 +49,15 @@ public class StoreServiceImpl implements StoreService{
 	@Override
 	public List<StoreVO> getStoreListByCategory(int category) {
 		return storeMapper.getStoreListByCategory(category);
+	}
+
+	@Override
+	public StoreAndImageDto getStoreWithImage(int id) {
+		return storeMapper.getStoreWithImage(id);
+	}
+
+	@Override
+	public List<StoreListAndImageDto> getStoreListWithImage() {
+		return storeMapper.getStoreListWithImage();
 	}
 }

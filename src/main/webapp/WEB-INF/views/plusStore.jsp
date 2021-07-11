@@ -10,7 +10,7 @@
 <body>
 	<div class="main-store">
 		<img
-			src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
+			src="user/display?fileName=${store.uploadPath}/s_${store.uuid}_${store.fileName}"
 			class="main-store-image"><input type="text" readonly="readonly"
 			value="<c:out value="${store.storename}"/>">
 	</div>
@@ -20,7 +20,7 @@
 		<c:forEach items="${menus}" var="menu">
 			<input type="button" value="전달하기" onclick="setParentText()">
 			<img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
+				src="user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
 				style="display: block;" class="menu-list-image">
 			<ul>
 				<c:out value="${menu.menuname}" />

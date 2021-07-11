@@ -3,6 +3,11 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.web.mapper.MenuMapper">
+
+	<select id="getMenuListWithImage" resultType="com.spring.web.dto.MenuListAndImageDto">
+		SELECT * FROM menu join image on menu.id=image.menu_id  where menu.store_id=#{id};
+	</select>
+
 	<select id="getMenuById" resultType="com.spring.web.vo.MenuVO">
 		select * from menu where
 		id=#{id}

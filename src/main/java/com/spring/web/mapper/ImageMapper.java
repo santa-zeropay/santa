@@ -13,7 +13,10 @@ public interface ImageMapper {
 	
 	//메뉴 이미지 등록
 	public void MenuImageEnroll(ImageVO vo);
-	//이미지 보여주기
-	public List<ImageVO> getImageList(int id);
+	//가게 이미지 보여주기
+	public List<ImageVO> getImageByStore(int id);
+	//메뉴 이미지 보여주기
+	public List<ImageVO> getImageByMenu(int id);
+	
 	
 }

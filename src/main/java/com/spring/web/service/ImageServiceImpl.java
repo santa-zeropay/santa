@@ -30,10 +30,14 @@ public class ImageServiceImpl implements ImageService{
 		log.info("메뉴 이미지 등록시작");
 		imageMapper.MenuImageEnroll(vo);	
 	}
+	@Override
+	public List<ImageVO> getImageByStore(int id) {
+		return imageMapper.getImageByStore(id);
+	}
 
 	@Override
-	public List<ImageVO> getImageList(int id) {
-		return imageMapper.getImageList(id);
+	public List<ImageVO> getImageByMenu(int id) {
+		return imageMapper.getImageByMenu(id);
 	}
 
 

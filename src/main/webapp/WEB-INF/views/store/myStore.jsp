@@ -13,8 +13,8 @@
 
 	<div class="main-store">
 		<input type="hidden" name="id" value="<c:out value="${store.id}"/>">
-			<div class="form_section main-store-image">
-				<div id="uploadResult"></div>
+		<div class="form_section main-store-image">
+			<div id="uploadResult"></div>
 		</div>
 		<input type="text" readonly="readonly" id="storename" name="storename"
 			value="<c:out value="${store.storename}"/>">
@@ -33,6 +33,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 	<script>
+
+	
 $(document).ready(function(){
 
 	console.log(${store_id});

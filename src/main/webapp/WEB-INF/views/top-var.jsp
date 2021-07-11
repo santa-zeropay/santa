@@ -14,7 +14,7 @@
 		<div class="dropdown"> <button
 				class="dropbtn"><i class="fas fa-bars fa-2x"></i></button>
 		<div class="dropdown-content">
-			<a href="/main">홈</a> <a href="#">지도로 보기</a> <a href="/recommend">내 정보</a> <a
+			<a href="/main">홈</a> <a href="/map">지도로 보기</a> <a href="/user/myPage">내 정보</a> <a
 				href="/store/myStore">내 가게</a>
 		</div>
 	</div>

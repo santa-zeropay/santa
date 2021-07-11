@@ -8,10 +8,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.spring.web.dto.DistAndImageDto;
+import com.spring.web.dto.MenuListAndImageDto;
+import com.spring.web.dto.StoreAndImageDto;
+import com.spring.web.dto.StoreListAndImageDto;
 import com.spring.web.service.DistService;
+import com.spring.web.service.ImageService;
 import com.spring.web.service.MenuService;
 import com.spring.web.service.StoreService;
 import com.spring.web.vo.DistVO;
+import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
 import com.spring.web.vo.StoreVO;
 
@@ -25,19 +31,22 @@ public class HomeController {
 	private final StoreService storeServiceImpl;
 	private final MenuService menuServiceImpl;
 	private final DistService distServiceImpl;
+	private final ImageService imageServiceImpl;
 
 	@GetMapping("/main")
-	public void main(HttpSession httpSession,Model model) {
+	public void main(Model model) {
 
-		List<StoreVO> storeList = storeServiceImpl.getStoreList();
-		log.info("storeList는 "+storeList);
-		model.addAttribute("storeList", storeList);
+		List<StoreListAndImageDto> storeListAndImageDtos= storeServiceImpl.getStoreListWithImage();
+		log.info("storeListAndImageDtos는 "+storeListAndImageDtos);
+		log.info("사이즈: "+storeListAndImageDtos.size() );
+		model.addAttribute("storeList", storeListAndImageDtos);
 	}
 	@GetMapping("/store")
 	public void store(int id,Model model) {
 
 		StoreVO store = storeServiceImpl.getStoreById(id);
-		List<MenuVO> menus=menuServiceImpl.getMenuByStoreId(id);
+		StoreAndImageDto storeAndImageDtos= storeServiceImpl.getStoreWithImage(id);
+		List<MenuListAndImageDto> menuListAndImageDtos=menuServiceImpl.getMenuListWithImage(id);
 		DistVO dvo = new DistVO();
 		int category = store.getCategory();
 		List<StoreVO> storeCategory = storeServiceImpl.getStoreListByCategory(category);
@@ -66,23 +75,24 @@ public class HomeController {
 			
 		};
 
-		List<DistVO> dist3 = distServiceImpl.getDist3();
+		List<DistAndImageDto> distImage = distServiceImpl.distWithImage();
 		
-		log.info("menu"+menus);
-		model.addAttribute("store",store);
-		model.addAttribute("menus", menus);
-		model.addAttribute("dist3", dist3);
+		model.addAttribute("store", storeAndImageDtos);
+	
+		model.addAttribute("distImage", distImage);
+		log.info("~~"+distImage);
+		model.addAttribute("menuImage", menuListAndImageDtos);
 		
 		distServiceImpl.truncateDist();
 
 	}
 	@GetMapping("/plusStore")
 	public void plusStore(int id,Model model) {
-		StoreVO store = storeServiceImpl.getStoreById(id);
-		List<MenuVO> menus=menuServiceImpl.getMenuByStoreId(id);
 		
-		model.addAttribute("store",store);
-		model.addAttribute("menus", menus);
+		StoreAndImageDto storeAndImageDtos= storeServiceImpl.getStoreWithImage(id);
+		List<MenuListAndImageDto> menuListAndImageDtos=menuServiceImpl.getMenuListWithImage(id);
+		model.addAttribute("store",storeAndImageDtos);
+		model.addAttribute("menus", menuListAndImageDtos);
 
 	
 	}

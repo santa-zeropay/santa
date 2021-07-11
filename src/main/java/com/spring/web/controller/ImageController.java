@@ -128,7 +128,7 @@ public class ImageController {
 
 		System.out.println("파일 이름 : " + fileName);
 
-		File file =new File("C:\\Users\\subin\\Desktop\\upload\\"+ fileName);
+		File file =new File("C:\\Users\\subin\\Desktop\\upload\\"+fileName);
 
 
 		ResponseEntity<byte[]> result = null;
@@ -178,8 +178,8 @@ public class ImageController {
 	@ResponseBody
 	public ResponseEntity<List<ImageVO>> getImageList(int id){
 		System.out.println("getImageList"+id);
-		System.out.println(imageServiceImpl.getImageList(id));
-		return new ResponseEntity<List<ImageVO>>(imageServiceImpl.getImageList(id), HttpStatus.OK);
+		System.out.println(imageServiceImpl.getImageByStore(id));
+		return new ResponseEntity<List<ImageVO>>(imageServiceImpl.getImageByStore(id), HttpStatus.OK);
 
 	}
 }

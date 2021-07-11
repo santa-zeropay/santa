@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.web.dto.DistAndImageDto;
 import com.spring.web.mapper.DistMapper;
 import com.spring.web.mapper.ImageMapper;
 import com.spring.web.vo.DistVO;
@@ -46,5 +47,11 @@ public class DistServiceImpl implements DistService{
 	public void truncateDist() {
 		distMapper.truncateDist();
 		
+	}
+
+	@Override
+	public List<DistAndImageDto> distWithImage() {
+		
+		return distMapper.DistWithImage();
 	}
 }

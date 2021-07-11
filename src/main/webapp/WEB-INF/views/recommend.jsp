@@ -14,74 +14,29 @@
 <body>
 	<jsp:include page="top-var.jsp" flush="false" />
 
-	<div class="main-title">추천 패키지</div>
+	<div class="main-title">추천 코스</div>
 
 	<div class="store">
 		<div class="store-list">
 			<img
 				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
 				class="store-list-image">
-			<div class="store-list-text">치킨+피자</div>
+			<div class="store-list-text">데이트</div>
 		</div>
 		<div class="store-list">
 			<img
 				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
 				class="store-list-image">
-			<div class="store-list-text">치킨+떡볶이</div>
+			<div class="store-list-text">가족</div>
 		</div>
 		<div class="store-list">
 			<img
 				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
 				class="store-list-image">
-			<div class="store-list-text">햄버거+피자</div>
-		</div>
-		<div class="store-list">
-			<img src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				class="store-list-image"> <img
-				src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				class="store-list-image">
-			<div class="store-list-text">짬뽕+치킨</div>
+			<div class="store-list-text">친구</div>
 		</div>
 	</div>
-	<div class="store">
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-				class="store-list-image">
-			<div class="store-list-text">치킨+피자</div>
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/236x/79/26/0b/79260b6c5360cab2894c7471ad759216.jpg"
-				class="store-list-image">
-			<div class="store-list-text">치킨+떡볶이</div>
-		</div>
-		<div class="store-list">
-			<img
-				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
-				class="store-list-image"> <img
-				src="https://i.pinimg.com/236x/a3/1b/7e/a31b7e4662445694887e61e17da158b4.jpg"
-				class="store-list-image">
-			<div class="store-list-text">햄버거+피자</div>
-		</div>
-		<div class="store-list">
-			<img src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				class="store-list-image"> <img
-				src="https://pbs.twimg.com/media/EGsNsB4U0AAeo-Z.jpg"
-				class="store-list-image">
-			<div class="store-list-text">짬뽕+치킨</div>
-		</div>
-	</div>
+
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
 			<li class="page-item disabled"><a class="page-link" href="#"

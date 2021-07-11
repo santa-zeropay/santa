@@ -20,10 +20,11 @@
 	<div class="store">
 		<c:forEach items="${storeList}" var="store">
 			<div class="store-list">
-				<a href="/store?id=<c:out value="${store.id}"/>"> <img
-					src="https://i.pinimg.com/originals/ff/f5/94/fff5940628d5287ea6c6ba871b4866f9.png"
-					style="display: block;" class="store-list-image"> <c:out
-						value="${store.storename}" />
+				<a href="/store?id=<c:out value="${store.id}"/>"> 
+				<img
+					src="user/display?fileName=${store.uploadPath}/s_${store.uuid}_${store.fileName}"
+					style="display: block;" class="store-list-image">
+					<c:out value="${store.storename}" />
 				</a>
 			</div>
 		</c:forEach>
@@ -41,7 +42,9 @@
 	</nav>
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
+	
 </body>
 
 </html>
+
 

@@ -1,50 +1,60 @@
 @charset "UTF-8";
 
 @import "reset.css";
+
 @import "top-var.css";
 
-.main-store{
+.main-store {
 	display: flex;
 }
-.big-menu,
-.big-plus-store{
-	padding-top:20px;
-	padding-left:30px;
-	font-weight:bold;
+
+.big-menu, .big-plus-store {
+	padding-top: 20px;
+	padding-left: 30px;
+	font-weight: bold;
 	font-size: 20px;
 }
-.menu-cart{
-	margin-right:30px;
-	float:right;
-	background-color:gray;
-	width:300px;
-	height:500px;
+
+.menu-cart {
+	position: fixed;
+	right:10px;
+	bottom:50px;
+	margin-right: 30px;
+	background-color: #c0c0c0;
+	width: 300px;
+	height: 500px;
 }
-.main-store-image{
-	margin:50px;
-	margin-bottom:0px;
+
+.main-store-image {
+	margin: 50px;
+	margin-bottom: 0px;
 	width: 200px;
 	height: 200px;
 }
-.main-store input{
-	border:none;
-	font-size : 40px;
+
+.main-store input {
+	border: none;
+	font-size: 40px;
 	font-weight: bold;
 }
-.main-store-place{
-	font-size : 15px;
+
+.main-store-place {
+	font-size: 15px;
 	font-weight: normal;
 }
-.menu-list-image , .store-list-image{
+
+.menu-list-image, .store-list-image {
 	width: 150px;
 	height: 150px;
-	margin:20px;
+	margin: 20px;
 }
-.menu-list , .store-list{
+
+.menu-list, .store-list {
 	display: flex;
 	margin: 10px;
 	padding: 15px;
 }
-.menu-list ul,.store-list ul{
-	margin:25px 10px;
+
+.menu-list ul, .store-list ul {
+	margin: 25px 10px;
 }

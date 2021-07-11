@@ -3,6 +3,9 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.web.mapper.DistMapper">
+	<select id="DistWithImage" resultType="com.spring.web.dto.DistAndImageDto">
+		select * from dist join image on dist.store_id=image.store_id order by distance limit 3;
+	</select>
 	
 	<select id="getDist3" resultType="com.spring.web.vo.DistVO">
 		select * from dist order by distance limit 3;

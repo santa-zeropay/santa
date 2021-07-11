@@ -2,6 +2,7 @@ package com.spring.web.service;
 
 import java.util.List;
 
+import com.spring.web.dto.DistAndImageDto;
 import com.spring.web.vo.DistVO;
 
 public interface DistService {
@@ -13,4 +14,6 @@ public interface DistService {
 	public void distJoin(DistVO vo);
 
 	public void truncateDist();
+	
+	public List<DistAndImageDto> distWithImage();
 }

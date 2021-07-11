@@ -11,5 +11,7 @@ public interface ImageService {
 
 	public void MenuImageEnroll(ImageVO vo);
 	
-	public List<ImageVO> getImageList(int id);
+	public List<ImageVO> getImageByStore(int id);
+	
+	public List<ImageVO> getImageByMenu(int id);
 }

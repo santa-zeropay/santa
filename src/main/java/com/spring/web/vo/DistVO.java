@@ -12,7 +12,7 @@ import lombok.ToString;
 public class DistVO {
 	private int id;
 	private int store_id;
-	private String name;	//비교당하는가개
+	private String name;	//비교당하는가게
 	private double distance;	//두가게의 거리
 	
 }

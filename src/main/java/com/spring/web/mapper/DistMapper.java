@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.spring.web.dto.DistAndImageDto;
 import com.spring.web.vo.DistVO;
 import com.spring.web.vo.ImageVO;
 
@@ -14,5 +15,7 @@ public interface DistMapper {
 	public void distJoin(DistVO vo);
 
 	public void truncateDist();
+
+	public List<DistAndImageDto> DistWithImage();
 	
 }
