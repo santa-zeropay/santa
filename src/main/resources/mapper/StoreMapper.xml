@@ -3,14 +3,17 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.web.mapper.StoreMapper">
-	<select id="getStoreList"
-		resultType="com.spring.web.vo.StoreVO">
+	<select id="getStoreList" resultType="com.spring.web.vo.StoreVO">
 		SELECT * FROM store;
 	</select>
-
-	<select id="getStoreListWithImage"
+<select id="getStoreListWithImage"
 		resultType="com.spring.web.dto.StoreListAndImageDto">
-		SELECT * FROM store join image on store.id=image.store_id;
+		SELECT * FROM store join image on store.id=image.store_id
+		<if test="keyword!=null">
+			where store.storename like '%${keyword}%'
+		</if>
+		order by store.id desc
+		limit ${skip},${amount};
 	</select>
 	<select id="getStoreWithImage"
 		resultType="com.spring.web.dto.StoreAndImageDto">
@@ -21,13 +24,23 @@
 		select * from store where
 		id=#{id}
 	</select>
+	<select id="getStoreListByCategory"
+		resultType="com.spring.web.vo.StoreVO">
+		SELECT * FROM store where category=#{category};
+	</select>
 	<select id="getStoreByUserId"
 		resultType="com.spring.web.vo.StoreVO">
 		select * from store where user_id=#{id}
 	</select>
-	<select id="getStoreListByCategory"
+	<select id="getStoreListNotCategory"
 		resultType="com.spring.web.vo.StoreVO">
 		SELECT * from store where category!=#{category}
+	</select>
+	<select id="getStoreTotal" resultType="int">
+		select count(*) from store
+		<if test="keyword!=null">
+			where storename like '%${keyword}%'
+		</if>
 	</select>
 	<insert id="storeJoin">
 		<selectKey resultType="int" keyProperty="id" order="AFTER">

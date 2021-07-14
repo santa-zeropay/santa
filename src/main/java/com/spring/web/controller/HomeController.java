@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.spring.web.dto.DistAndImageDto;
+import com.spring.web.dto.MenuCartDto;
 import com.spring.web.dto.MenuListAndImageDto;
 import com.spring.web.dto.StoreAndImageDto;
 import com.spring.web.dto.StoreListAndImageDto;
+import com.spring.web.service.CartService;
 import com.spring.web.service.DistService;
 import com.spring.web.service.ImageService;
 import com.spring.web.service.MenuService;
@@ -19,6 +21,8 @@ import com.spring.web.service.StoreService;
 import com.spring.web.vo.DistVO;
 import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
+import com.spring.web.vo.NewPageMakerVO;
+import com.spring.web.vo.NewPageVO;
 import com.spring.web.vo.StoreVO;
 
 import lombok.RequiredArgsConstructor;
@@ -32,14 +36,18 @@ public class HomeController {
 	private final MenuService menuServiceImpl;
 	private final DistService distServiceImpl;
 	private final ImageService imageServiceImpl;
+	private final CartService cartServiceImpl;
 
 	@GetMapping("/main")
-	public void main(Model model) {
+	public void main(Model model,NewPageVO vo) {
 
-		List<StoreListAndImageDto> storeListAndImageDtos= storeServiceImpl.getStoreListWithImage();
+		List<StoreListAndImageDto> storeListAndImageDtos= storeServiceImpl.getStoreListWithImage(vo);
 		log.info("storeListAndImageDtos는 "+storeListAndImageDtos);
 		log.info("사이즈: "+storeListAndImageDtos.size() );
+		int total = storeServiceImpl.getStoreTotal(vo);
+
 		model.addAttribute("storeList", storeListAndImageDtos);
+		model.addAttribute("pageMaker",new NewPageMakerVO(vo, total));
 	}
 	@GetMapping("/store")
 	public void store(int id,Model model) {
@@ -47,15 +55,16 @@ public class HomeController {
 		StoreVO store = storeServiceImpl.getStoreById(id);
 		StoreAndImageDto storeAndImageDtos= storeServiceImpl.getStoreWithImage(id);
 		List<MenuListAndImageDto> menuListAndImageDtos=menuServiceImpl.getMenuListWithImage(id);
+		List<MenuCartDto> menuCartDtos = cartServiceImpl.getTempCartList();
 		DistVO dvo = new DistVO();
 		int category = store.getCategory();
-		List<StoreVO> storeCategory = storeServiceImpl.getStoreListByCategory(category);
+		List<StoreVO> storeNotCategory = storeServiceImpl.getStoreListNotCategory(category);
 		double x= store.getX();
 		double y= store.getY();
 		log.info("x는 "+x);
 		log.info("y는 "+y);
 		int i=1;
-		for(StoreVO catestore:storeCategory) {
+		for(StoreVO catestore:storeNotCategory) {
 
 			double cax= catestore.getX();
 			double cay= catestore.getY();
@@ -68,38 +77,36 @@ public class HomeController {
 			dvo.setStore_id(catestore.getId());
 			dvo.setName(name);
 			dvo.setDistance(dis);
-			
+
 			distServiceImpl.distJoin(dvo);
 			log.info("아"+dvo);
 			i=i+1;
-			
+
 		};
 
 		List<DistAndImageDto> distImage = distServiceImpl.distWithImage();
-		
+
 		model.addAttribute("store", storeAndImageDtos);
-	
+		model.addAttribute("cart", menuCartDtos);
+		log.info("cccaarr"+menuCartDtos);
 		model.addAttribute("distImage", distImage);
 		log.info("~~"+distImage);
 		model.addAttribute("menuImage", menuListAndImageDtos);
-		
+
 		distServiceImpl.truncateDist();
 
 	}
 	@GetMapping("/plusStore")
 	public void plusStore(int id,Model model) {
-		
+
 		StoreAndImageDto storeAndImageDtos= storeServiceImpl.getStoreWithImage(id);
 		List<MenuListAndImageDto> menuListAndImageDtos=menuServiceImpl.getMenuListWithImage(id);
 		model.addAttribute("store",storeAndImageDtos);
 		model.addAttribute("menus", menuListAndImageDtos);
 
-	
-	}
-	@GetMapping("/recommend")
-	public void recommend() {
 
 	}
+
 	@GetMapping("/map")
 	public void map(Model model) {
 		List<StoreVO> storeList = storeServiceImpl.getStoreList();

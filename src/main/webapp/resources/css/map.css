@@ -1,5 +1,43 @@
 @charset "UTF-8";
 
-#map{
-	padding: 100px;
+.map {
+	display: flex;
+	flex-direction: column;
+	 justify-content : center;
+	align-items: center;
+	justify-content: center;
+}
+
+.map img {
+	margin: 30px;
+}
+
+.recommend {
+	padding: 10px;
+	margin-left: 20px;
+}
+.recommend-icon{
+	display : flex;
+}
+.recommend h3 {
+	text-align: center;
+}
+
+.recommend i {
+	display: flex;
+	justify-content: center;
+}
+
+.recommend i:hover {
+	color: tomato;
+	animation: spinround 2s linear infinite;
+}
+@keyframes spinround{
+	from{
+		size:100px;
+		transform:rotate(0deg)
+	}
+	to{
+	transform:rotate(360deg)
+	}
 }

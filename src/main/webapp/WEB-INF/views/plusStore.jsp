@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>추가 가게</title>
+<link rel="stylesheet" href="resources/css/store.css">
 </head>
 <body>
 	<div class="main-store">
@@ -16,18 +17,21 @@
 	</div>
 	<hr>
 	<div class="big-menu">메뉴</div>
-	<div class="menu-list">
+	<div class="plus-menu-list">
 		<c:forEach items="${menus}" var="menu">
-			<input type="button" value="전달하기" onclick="setParentText()">
+		<ul>
+				<c:out value="${menu.menuname}" />
+				<c:out value="${menu.price}" />원
+				
+			</ul>
+		<div class="plus-menu-im">
 			<img
 				src="user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
-				style="display: block;" class="menu-list-image">
-			<ul>
-				<c:out value="${menu.menuname}" />
-				<c:out value="${menu.price}" />
-			</ul>
+				class="menu-list-image">
+				<input type="button" value="주문표에 넣기" onclick="setParentText()">
+			</div>
+			
 		</c:forEach>
-	<input id="child" type="button" value="전달하기" onclick="setParentText()">
 	</div>
 	
 	<script type="text/javascript">

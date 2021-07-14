@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import "reset.css";
+
+@import "top-var.css";
+
+.main-store {
+	display: flex;
+	justify-content: center;
+}
+
+.image-couple {
+	font-size: 50px;
+	font-weight: bold;
+	position: relative;
+	top: 180px;
+	position: relative;
+}
+
+.main-store-image {
+	width: 400px;
+	height: 400px;
+	margin-right: 50px;
+}
+
+.big-plus-store {
+	font-size: 40px;
+	font-weight: bold;
+	padding: 20px;
+	margin-top: 50px;
+}
+
+.store-list {
+	display: flex;
+	justify-content:space-between;
+	padding: 20px;
+}
+
+.store-list-d {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	font-size: 25px;
+}
+.store-list-image{
+	width:500px;
+	height: 400px;
+}
+.store-list-name {
+	display: flex;
+	justify-content: center;
+}

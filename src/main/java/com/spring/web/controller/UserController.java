@@ -125,7 +125,7 @@ public class UserController {
 			httpSession.setAttribute("password", user.getPassword());
 			httpSession.setAttribute("store_id", store_id);
 
-			return "redirect:/main";
+			return "redirect:/recommend";
 		}
 		return "/user/loginPage";
 	}

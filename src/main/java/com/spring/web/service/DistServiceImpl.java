@@ -28,6 +28,7 @@ public class DistServiceImpl implements DistService{
         dist = Math.acos(dist);
         dist = dist * 180 / Math.PI;
         dist = dist * 60 * 1.1515 *1609.344;
+        dist=Math.round(dist*1000)/1000.0;
  
         return dist;
       

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +18,22 @@
 			class="main-store-image"><input type="text" readonly="readonly"
 			value="<c:out value="${store.storename}"/>">
 		<div class="main-store-place">
-			<div id="map" style="width: 300px; height: 300px;"></div>
+			<div id="map"
+				style="width: 300px; height: 300px; margin-bottom: 20px;"></div>
 			<c:out value="${store.address}" />
 		</div>
 	</div>
-	<div class="menu-cart">
-	<h2>~~장바구니목록~~</h2>
-	<input id="parent" type="text" name="menu-cart">
+	<div class="menu-cart" id="tempCartList">
+		<div class="menu-cart-name">~~주문표~~</div>
+		<c:forEach items="${cart}" var="cart">
+		<div class="menu-cart-detail"><c:out value="${cart.menuname}" />
+		<span style="text-decoration:line-through; color:#999999; "><c:out value="${cart.price}" />
+		</span>->
+		<fmt:formatNumber type="number" pattern="0" value="${cart.price*0.9}"  />원</div>
+		</c:forEach>
+		<div class="menu-total">최종금액 : 9540원</div>
+		<input type="button" class="menu-cart-button" value="장바구니 담기">
+		<!-- <input id="parent" type="text" name="menu-cart"> -->
 	</div>
 	<hr>
 	<div class="big-menu">메뉴</div>
@@ -34,7 +44,8 @@
 				style="display: block;" class="menu-list-image">
 			<ul>
 				<c:out value="${menu.menuname}" />
-				<c:out value="${menu.price}" />
+				<c:out value="${menu.price}" />원
+			<input type='button' value='주문표에 넣기' id="tempCart">
 			</ul>
 		</c:forEach>
 	</div>
@@ -42,23 +53,42 @@
 	<div class="big-plus-store">추가 가게들</div>
 	<div class="store-list">
 		<c:forEach items="${distImage}" var="dist">
-			<a href="javascript:plusStore(<c:out value="${dist.store_id}" />)"> <img
+			<a href="javascript:plusStore(<c:out value="${dist.store_id}" />)">
+				<img
 				src="user/display?fileName=${dist.uploadPath}/s_${dist.uuid}_${dist.fileName}"
 				style="display: block;" class="store-list-image">
 			</a>
 			<ul>
 				<c:out value="${dist.name}" />
 				<hr>
-				<h6>거리 :</h6>
-				<c:out value="${dist.distance}" />km
+				거리 :
+				<c:out value="${dist.distance}" />
+				m
 			</ul>
 		</c:forEach>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			let tempCartList = $("#tempCartList");
+
+			//장바구니 담기 버튼
+			$("#tempCart").click(function() {
+				console.log("dd");
+				tempCartList.append("<c:out value="${menu.menuname}" />");
+			});
+
+		});
+	</script>
+
+
 	<script type="text/javascript">
-	function plusStore(store_id){
-		console.log(store_id);
-		window.open("/plusStore?id="+store_id,"plus","width=400, height=400");
-	}
+		function plusStore(store_id) {
+			console.log(store_id);
+			window.open("/plusStore?id=" + store_id, "plus",
+					"width=450, height=450");
+		}
 	</script>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b464bd1a1b138cbb522d292c53f2214"></script>
@@ -66,20 +96,23 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
 			center : new kakao.maps.LatLng(<c:out
-					value="${store.x}" />, <c:out
+					value="${store.x}" />,
+					<c:out
 						value="${store.y}" />), // 지도의 중심좌표
 			level : 3
 		// 지도의 확대 레벨
 		};
 		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-		var map = new kakao.maps.Map(mapContainer, mapOption);		
+		var map = new kakao.maps.Map(mapContainer, mapOption);
 		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(<c:out
-				value="${store.x}" />, <c:out
-					value="${store.y}" />); 
+		var markerPosition = new kakao.maps.LatLng(
+				<c:out
+				value="${store.x}" />,
+				<c:out
+					value="${store.y}" />);
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
-		    position: markerPosition
+			position : markerPosition
 		});
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);

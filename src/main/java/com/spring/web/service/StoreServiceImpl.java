@@ -10,6 +10,7 @@ import com.spring.web.dto.StoreListAndImageDto;
 import com.spring.web.mapper.StoreMapper;
 import com.spring.web.mapper.UserMapper;
 import com.spring.web.vo.ImageVO;
+import com.spring.web.vo.NewPageVO;
 import com.spring.web.vo.StoreVO;
 import com.spring.web.vo.UserVO;
 
@@ -47,8 +48,8 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public List<StoreVO> getStoreListByCategory(int category) {
-		return storeMapper.getStoreListByCategory(category);
+	public List<StoreVO> getStoreListNotCategory(int category) {
+		return storeMapper.getStoreListNotCategory(category);
 	}
 
 	@Override
@@ -57,7 +58,14 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public List<StoreListAndImageDto> getStoreListWithImage() {
-		return storeMapper.getStoreListWithImage();
+	public List<StoreListAndImageDto> getStoreListWithImage(NewPageVO vo) {
+		return storeMapper.getStoreListWithImage(vo);
 	}
+
+	@Override
+	public int getStoreTotal(NewPageVO vo) {
+		return storeMapper.getStoreTotal(vo);
+	}
+
+
 }

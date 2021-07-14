@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +24,16 @@
 			<div class="item_list">판매가</div>
 			<div class="item_list">수량</div>
 		</div>
-		<div class="item">
-			<div class="item_list"><input type="text" value="<c:out value="${cart.id}"/>"></div>
-			<div class="item_list"><input type="text" name="menuname" value="<c:out value="${menu.name}"/>"></div>
-			<div class="item_list"><input type="text" name="price"value="<c:out value="${menu.price}"/>"></div>
-			<div class="item_list"><input type="text" name="count"value="<c:out value="${order_menu.count}"/>"></div>
+		<div class="menu-cart" id="tempCartList">
+		<c:forEach items="${cart}" var="cart">
+		<div class="menu-cart-detail">
+		<c:out value="${cart.menuname}" />
+		<c:out value="${cart.menuname}" />
+		<c:out value="${cart.price}" />
+		<c:out value="${cart.price}" />
 		</div>
-		<div class="item">
-			<div class="item_list">@</div>
-			<div class="item_list">@</div>
-			<div class="item_list">@</div>
-			<div class="item_list">@</div>
-		</div>
+		</c:forEach>
+	</div>
 
 	</div>
 
