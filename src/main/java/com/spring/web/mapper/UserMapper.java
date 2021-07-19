@@ -22,7 +22,7 @@ public interface UserMapper {
 	public UserVO getUserById(int id);
 
 	//정보수정
-	public UserVO userUpdate(UserVO vo);
+	public void userUpdate(UserVO vo);
 	
-
+	
 }

@@ -44,8 +44,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserVO userUpdate(UserVO vo) {
-		return userMapper.userUpdate(vo);
+	public void userUpdate(UserVO vo) {
+		userMapper.userUpdate(vo);
 		
 	}
 
@@ -60,4 +60,5 @@ public class UserServiceImpl implements UserService{
 
 	        return validatorResult;
 	}
+
 }

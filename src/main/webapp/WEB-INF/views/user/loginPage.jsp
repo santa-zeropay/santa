@@ -33,13 +33,18 @@
 							class="login-input" id="password" name="password"
 							placeholder="비밀번호를 입렵해주세요">
 					</div>
-					<input type="submit" value="로그인"></input> 
-					<input type="submit" value="회원가입"></input>
+					<input type="submit" value="로그인"></input> 			
 				</form>
+				<input type="submit" value="회원가입" id="register-button" onClick="newPage()"></input>
 			</div>
 		</div>
 	</div>
-
+<script>
+function newPage()  {
+	console.log("ddd");
+	  window.location.href = '/user/register';
+	}
+</script>
 
 </body>
 </html>

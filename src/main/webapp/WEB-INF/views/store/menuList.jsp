@@ -9,11 +9,13 @@
 <link rel="stylesheet" href="/resources/css/menuList.css">
 </head>
 <body>
-	<div id="menu_id"><input type="text" readonly="readonly" id="storename"
-			name="storename" value="<c:out value="${store.storename}"/>"></div>
+	<div id="menu_id">
+		<input type="text" readonly="readonly" id="storename" name="storename"
+			value="<c:out value="${store.storename}"/>">
+	</div>
 
 	<div class="menu_table_wrap">
-	
+
 		<table class="menu_table">
 			<thead>
 				<tr>
@@ -26,14 +28,16 @@
 				<tr class="menu-list">
 
 					<td><a href="/store/menuDetail?id=<c:out value="${menu.id}"/>">
-					<input type="text"
-							value="<c:out value="${menu.menuname}"/>"></a></td>
-					<td><input type="text" value="<c:out value="${menu.price}"/>"></td>
-					<td><input type="text"
+							<input type="text" readonly="readonly"
+							value="<c:out value="${menu.menuname}"/>">
+					</a></td>
+					<td><input type="text" readonly="readonly"
+						value="<c:out value="${menu.price}"/>"></td>
+					<td><input type="text" readonly="readonly"
 						value="<c:out value="${menu.discountrate}"/>"></td>
 				</tr>
 			</c:forEach>
-			
+
 		</table>
 
 		<a href="/store/myStore" class="goback"> <input type="button"

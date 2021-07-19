@@ -6,6 +6,7 @@ import lombok.Data;
 public class MenuCartDto {
 	private String menuname;
 	private int price;
+	private int count;	
 	
 	private int id;
 	private int store_id;

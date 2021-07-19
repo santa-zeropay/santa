@@ -15,13 +15,14 @@
 	<select id="userUpdate" resultType="com.spring.web.vo.UserVO">
 		update user set
 		email=#{email},
-		password=#{password}, name=#{name},
+		password=#{password},
+		name=#{name},
 		phonenum=#{phonenum}
 		WHERE id=#{id}
 	</select>
 	<insert id="userJoin">
 		insert into user values(#{id}, #{email}, #{password},
-		#{name}, #{role},#{phonenum},#(gender))
+		#{name}, #{role},#{phonenum})
 	</insert>
 
 

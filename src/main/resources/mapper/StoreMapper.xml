@@ -12,7 +12,7 @@
 		<if test="keyword!=null">
 			where store.storename like '%${keyword}%'
 		</if>
-		order by store.id desc
+		order by store.id
 		limit ${skip},${amount};
 	</select>
 	<select id="getStoreWithImage"
@@ -25,8 +25,8 @@
 		id=#{id}
 	</select>
 	<select id="getStoreListByCategory"
-		resultType="com.spring.web.vo.StoreVO">
-		SELECT * FROM store where category=#{category};
+		resultType="com.spring.web.dto.StoreListAndImageDto">
+		SELECT * FROM store join image on store.id=image.store_id where category=#{category};
 	</select>
 	<select id="getStoreByUserId"
 		resultType="com.spring.web.vo.StoreVO">

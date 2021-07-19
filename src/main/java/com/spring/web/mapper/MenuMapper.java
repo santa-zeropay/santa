@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.spring.web.dto.MenuDetailImageDto;
 import com.spring.web.dto.MenuListAndImageDto;
 import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
@@ -24,9 +25,11 @@ public interface MenuMapper {
 	public List<MenuVO> getMenuByStoreId(int id);
 
 	//메뉴 수정
-	public MenuVO menuUpdate(MenuVO vo);
+	public void menuUpdate(MenuVO vo);
 	//메뉴 삭제
-	public void menuDelete(int id);
+	public int menuDelete(int id);
 
+	public MenuDetailImageDto getMenuWithImage(int id);
+	
 	public List<MenuListAndImageDto> getMenuListWithImage(int id);
 }

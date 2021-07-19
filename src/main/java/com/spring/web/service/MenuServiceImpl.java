@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.web.dto.MenuDetailImageDto;
 import com.spring.web.dto.MenuListAndImageDto;
 import com.spring.web.mapper.MenuMapper;
 import com.spring.web.vo.ImageVO;
@@ -40,19 +41,25 @@ public class MenuServiceImpl implements MenuService{
 
 
 	@Override
-	public MenuVO menuUpdate(MenuVO vo) {
-		return menuMapper.menuUpdate(vo);
+	public void menuUpdate(MenuVO vo) {
+		menuMapper.menuUpdate(vo);
 	}
 
 	@Override
-	public void menuDelete(int id) {
-		menuMapper.menuDelete(id);
+	public int menuDelete(int id) {
+		return menuMapper.menuDelete(id);
 		
 	}
 
 	@Override
 	public List<MenuListAndImageDto> getMenuListWithImage(int id) {
 		return menuMapper.getMenuListWithImage(id);
+	}
+
+	@Override
+	public MenuDetailImageDto getMenuWithImage(int id) {
+		// TODO Auto-generated method stub
+		return menuMapper.getMenuWithImage(id);
 	}
 
 

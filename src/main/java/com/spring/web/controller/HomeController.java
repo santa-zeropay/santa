@@ -2,6 +2,7 @@ package com.spring.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,14 @@ import com.spring.web.service.DistService;
 import com.spring.web.service.ImageService;
 import com.spring.web.service.MenuService;
 import com.spring.web.service.StoreService;
+import com.spring.web.service.UserService;
 import com.spring.web.vo.DistVO;
 import com.spring.web.vo.ImageVO;
 import com.spring.web.vo.MenuVO;
 import com.spring.web.vo.NewPageMakerVO;
 import com.spring.web.vo.NewPageVO;
 import com.spring.web.vo.StoreVO;
+import com.spring.web.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,12 +38,20 @@ public class HomeController {
 	private final StoreService storeServiceImpl;
 	private final MenuService menuServiceImpl;
 	private final DistService distServiceImpl;
-	private final ImageService imageServiceImpl;
 	private final CartService cartServiceImpl;
+	private final UserService userServiceImpl;
 
 	@GetMapping("/main")
-	public void main(Model model,NewPageVO vo) {
-
+	public void main(Model model,NewPageVO vo,UserVO uvo,HttpSession httpSession) {
+		if(httpSession.getAttribute("id")!=null) {
+			int id = (int) httpSession.getAttribute("id");
+			//서비스안의 회원정보보기 메서드 호출
+			UserVO user = userServiceImpl.getUserById(id);
+			log.info("사람"+user);
+			model.addAttribute("user", user);
+		}
+		
+	
 		List<StoreListAndImageDto> storeListAndImageDtos= storeServiceImpl.getStoreListWithImage(vo);
 		log.info("storeListAndImageDtos는 "+storeListAndImageDtos);
 		log.info("사이즈: "+storeListAndImageDtos.size() );
@@ -113,5 +124,6 @@ public class HomeController {
 		log.info("~~~~~~");
 		model.addAttribute("storeList", storeList);
 	}
+	
 
 }

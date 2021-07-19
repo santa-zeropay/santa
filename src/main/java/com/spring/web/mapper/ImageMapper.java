@@ -18,5 +18,5 @@ public interface ImageMapper {
 	//메뉴 이미지 보여주기
 	public List<ImageVO> getImageByMenu(int id);
 	
-	
+	public int imageDelete(int id);
 }

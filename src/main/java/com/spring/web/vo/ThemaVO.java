@@ -9,9 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class CartVO {
+public class ThemaVO {
 	private int id;
-	private int store_id;
-	private int menu_id;
-	private int count;	
+	private String name;
+	private int category;
 }

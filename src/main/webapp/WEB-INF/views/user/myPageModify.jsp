@@ -50,9 +50,16 @@
 					<div class="form-group">
 						<label for="role">역할</label>
 						<div class="login-input">
+								<c:if test="${user.role == 1}">
 							<input type="radio" disabled="true" name="role" id="role"
-								value="User" checked="checked"> 고객 <input type="radio"
-								name="role" id="role" value="Admin">사장님
+								value=0> 고객 <input type="radio"
+								name="role" id="role" value=1 checked="checked">사장님
+						</c:if>
+							<c:if test="${user.role == 0}">
+							<input type="radio" disabled="true" name="role" id="role"
+								value=0 checked="checked"> 고객 <input type="radio"
+								name="role" id="role" value=1 >사장님
+						</c:if>
 						</div>
 
 					</div>

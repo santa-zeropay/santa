@@ -20,7 +20,7 @@ public class NewPageVO {
     
     /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
     public NewPageVO() {
-        this(1,6);
+        this(1,4);
         this.skip = 0;
     }
     

@@ -23,7 +23,10 @@ public interface StoreService {
 	
 	public List<StoreVO> getStoreListNotCategory(int category);
 	
+	public List<StoreListAndImageDto> getStoreListByCategory(int category);
+	
 	public StoreAndImageDto getStoreWithImage(int id);
 
 	public int getStoreTotal(NewPageVO vo);
+
 }

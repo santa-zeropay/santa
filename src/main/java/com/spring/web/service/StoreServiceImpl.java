@@ -67,5 +67,11 @@ public class StoreServiceImpl implements StoreService{
 		return storeMapper.getStoreTotal(vo);
 	}
 
+	@Override
+	public List<StoreListAndImageDto> getStoreListByCategory(int category) {
+		
+		return storeMapper.getStoreListByCategory(category);
+	}
+
 
 }

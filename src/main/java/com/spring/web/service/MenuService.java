@@ -3,6 +3,7 @@ package com.spring.web.service;
 
 import java.util.List;
 
+import com.spring.web.dto.MenuDetailImageDto;
 import com.spring.web.dto.MenuListAndImageDto;
 import com.spring.web.dto.StoreListAndImageDto;
 import com.spring.web.vo.ImageVO;
@@ -18,9 +19,11 @@ public interface MenuService {
 
 	public List<MenuVO> getMenuByStoreId(int id);
 
-	public MenuVO menuUpdate(MenuVO vo);
+	public void menuUpdate(MenuVO vo);
 	
-	public void menuDelete(int id);
+	public int menuDelete(int id);
+	
+	public MenuDetailImageDto getMenuWithImage(int id);
 	
 	public List<MenuListAndImageDto> getMenuListWithImage(int id);
 }

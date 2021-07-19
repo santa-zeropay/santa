@@ -27,26 +27,21 @@
 	font-size: 40px;
 	font-weight: bold;
 	padding: 20px;
-	margin-top: 50px;
 }
 
 .store-list {
 	display: flex;
-	justify-content:space-between;
+	justify-content: space-between;
 	padding: 20px;
 }
-
-.store-list-d {
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	font-size: 25px;
-}
-.store-list-image{
-	width:500px;
+.store-list-image {
+	width: 500px;
 	height: 400px;
 }
+
 .store-list-name {
+	font-size: 25px;
 	display: flex;
+	padding: 20px;
 	justify-content: center;
 }

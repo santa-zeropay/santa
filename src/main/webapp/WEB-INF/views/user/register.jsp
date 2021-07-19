@@ -60,11 +60,7 @@
 								checked="checked"> 고객 <input type="radio" name="role"
 								id="role1" value="1">사장님
 						</div>
-
 					</div>
-
-
-
 					<div id="appendOwner" style="display: none">
 
 						<div class="form-group">
@@ -86,55 +82,53 @@
 								placeholder="가게주소를 입력해주세요">
 						</div>
 
-
-
 						<div class="form-group">
 							<label for="phonenum">가게사진</label> <input type="file"
 								class="login-input" id="fileItem" name="uploadFile"
 								placeholder="가게사진을 넣어주세요">
-
 							<div id="uploadResult"></div>
 						</div>
-
 					</div>
-
 					<input type="submit" class="join_button" value="회원가입"></input>
-
+					<input type="hidden" name="x" id="x"/>
+					<input type="hidden" name="y" id="y"/>						
 				</form>
-
-
-
-
+	<div id="map" style="width:100%;height:350px;"></div>
 
 			</div>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 	<script>
 $(document).ready(function(){
 	//회원가입 버튼(회원가입 기능 작동)
-	$(".join_button").click(function(){
+	$(".join_button").click(function(e){
+		
+		if($("#email").val()==''){			
+			alert("이메일을 입력해주세요");
+			return false;
+		}else if($("#password").val()==''){			
+			alert("비밀번호를 입력해주세요");
+			return false;
+		}else if($("#name").val()==''){			
+			alert("이름을 입력해주세요");
+			return false;
+		}else if($("#phonenum").val()==''){			
+			alert("핸드폰번호를 입력해주세요");
+			return false;
+		}
 		$("#login-button").attr("action", "/user/register");
 		$("#login-button").submit();
 	});
-	
-	
 	$("input:radio[name=role]").click(function(){
-
 	 	if($("input:radio[name=role]:checked").val()=='0'){
 	        $("#appendOwner").hide();
-
 		};
-		
 	    if($("input:radio[name=role]:checked").val()=='1'){
 	        $("#appendOwner").show();
 
 		};
-	});
-
-	
-	
+	});	
 	/* var, method related with attachFile */
 	let regex = new RegExp("(.*?)\.(jpg|png)$");
 	let maxSize = 10485760; //1MB	
@@ -144,22 +138,18 @@ $(document).ready(function(){
 		if(fileSize >= maxSize){
 			alert("파일 사이즈 초과");
 			return false;
-		}
-			  
+		}			  
 		if(!regex.test(fileName)){
 			alert("해당 종류의 파일은 업로드할 수 없습니다.");
 			return false;
 		}
-		
 		return true;		
-		
 	}
 
 	$("input[type='file']").on("change", function(e){
 		if($(".imgDeleteBtn").length > 0){
 			deleteFile();
-		}
-		
+		}		
 		let formData= new FormData();
 		var fileInput=$('input[name="uploadFile"]');
 
@@ -260,6 +250,29 @@ $(document).ready(function(){
 });
 
 
+</script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b464bd1a1b138cbb522d292c53f2214&libraries=services"></script>
+<script>
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new kakao.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === kakao.maps.services.Status.OK) {
+
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+        console.log(coords.La);
+
+        console.log(coords.Ma);
+
+        console.log(coords);
+        
+    } 
+});    
 </script>
 </body>
 </html>

@@ -24,14 +24,12 @@
 			<div class="item_list">판매가</div>
 			<div class="item_list">수량</div>
 		</div>
-		<div class="menu-cart" id="tempCartList">
+		<div class="menu-cart item" id="tempCartList">
 		<c:forEach items="${cart}" var="cart">
-		<div class="menu-cart-detail">
-		<c:out value="${cart.menuname}" />
-		<c:out value="${cart.menuname}" />
-		<c:out value="${cart.price}" />
-		<c:out value="${cart.price}" />
-		</div>
+		<div class="item_list"><img class="menu-image" src="../../resources/images/friend.jpg"></div>
+			<div class="item_list"><c:out value="${cart.menuname}" /></div>
+			<div class="item_list"><c:out value="${cart.price}" /></div>
+			<div class="item_list"><c:out value="${cart.count}" /></div>
 		</c:forEach>
 	</div>
 

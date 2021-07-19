@@ -16,7 +16,9 @@ public interface UserService {
 
 	public UserVO getUserById(int id);
 
-	public UserVO userUpdate(UserVO vo);
+	public void userUpdate(UserVO vo);
 
 	public Map<String, String> validateHandling(Errors errors);
+
+
 }

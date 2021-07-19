@@ -43,9 +43,9 @@
 					</div>
 
 					<div class="form-group">
-						<label for="image">이미지</label> <img src="a/a/a/a/a">
+						<label for="image">이미지</label>
+						<img src="/user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}">
 					</div>
-
 
 					 <input type="submit" value="메뉴수정"></input>
 						<a href="/store/menuList"> <input type="button" value="돌아가기"></input>
@@ -54,6 +54,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			//저장하기 버튼(저장하기 기능 작동)

@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -80,7 +81,6 @@ public class UserController {
 		if (errors.hasErrors()) {
 			// 회원가입 실패시, 입력 데이터를 유지
 			model.addAttribute("vo", vo);
-
 			// 유효성 통과 못한 필드와 메시지를 핸들링
 			Map<String, String> validatorResult = userServiceImpl.validateHandling(errors);
 			for (String key : validatorResult.keySet()) {
@@ -97,7 +97,7 @@ public class UserController {
 			svo.setUser_id(uservo.getId());
 			storeServiceImpl.storeJoin(svo);
 			log.info("join 성공");
-
+			
 			for (ImageVO image:svo.getImageList()) {
 				image.setStore_id(svo.getId());
 				imageServiceImpl.StoreImageEnroll(image);
@@ -118,16 +118,26 @@ public class UserController {
 		UserVO user=userServiceImpl.getUser(vo);
 		int uid = user.getId();
 		StoreVO storevo =storeServiceImpl.getStoreByUserId(uid);
-		int store_id=storevo.getId();
+	
 		if(user!=null) {
 			httpSession.setAttribute("id", user.getId());
 			httpSession.setAttribute("email", user.getEmail());
 			httpSession.setAttribute("password", user.getPassword());
-			httpSession.setAttribute("store_id", store_id);
-
-			return "redirect:/recommend";
+			if(storevo!=null) {
+				int store_id=storevo.getId();
+				httpSession.setAttribute("store_id", store_id);
+			}
+			
+			return "redirect:/main";
 		}
 		return "/user/loginPage";
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpSession httpSession) {
+			log.info("로그아웃 해보자");
+	        httpSession.invalidate();
+	        log.info("로그아웃완료");
+	        return "redirect:/main";
 	}
 
 	@GetMapping("/myPage")

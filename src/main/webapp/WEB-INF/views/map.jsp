@@ -4,17 +4,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>지도</title>
-    
+<meta charset="utf-8">
+<title>지도</title>
+
 </head>
 <body>
-<!-- 이미지 지도를 표시할 div 입니다 -->
-<div id="map" style="width:1700px;height:650px;"></div>    
+	<!-- 이미지 지도를 표시할 div 입니다 -->
+	<div id="map" style="width: 1700px; height: 650px;"></div>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b464bd1a1b138cbb522d292c53f2214"></script>
-<script>    
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0b464bd1a1b138cbb522d292c53f2214"></script>
+	<script>    
 
 
 // 이미지 지도에 표시할 마커입니다
@@ -22,8 +23,11 @@
 var markers = [ 
     
 ];
+var geocoder = new kakao.maps.services.Geocoder();
 
 <c:forEach items="${storeList}" var="store">
+
+
 // 마커가 표시될 위치입니다 
 var markerPosition  = new kakao.maps.LatLng(<c:out
 		value="${store.x}" />,<c:out

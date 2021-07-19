@@ -2,9 +2,10 @@
 
 @import "reset.css";
 
-.tagline2{
-	font-size:40px;
+.tagline2 {
+	font-size: 40px;
 }
+
 .login-input {
 	border: none;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -14,36 +15,38 @@
 	font-weight: 400;
 	line-height: 1.5;
 	color: #212529;
-	
 }
 
 .container {
 	max-width: 100px;
 }
 
-#login-button{
+#login-button {
 	display: flex;
 	flex-direction: column;
 }
 
-#login-button input {
+.login-form input, #login-button input {
 	margin-top: 10px;
 	border: none;
-	font-size: 18px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	font-size: 18px; border-bottom : 1px solid rgba( 0, 0, 0, 0.2);
 	margin-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-#login-button input[type="submit"],
-#login-button input[type="button"]
-{
-	width:100%;
+#register-button input[type="submit"], #login-button input[type="button"],
+	.login-form input[type="submit"] {
+	width: 100%;
 	background-color: rgb(166, 234, 231);
 	cursor: pointer;
 	padding: 20px 0px;
 	border-radius: 15px;
 }
-
+#register-button input[type="submit"]{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+}
 .login-form {
 	margin-top: 50px;
 	width: 500px;
@@ -76,7 +79,8 @@
 	max-width: 150px;
 	margin: 0 auto;
 }
-.form-group span{
-	color: red; 
-	font-size:13px;
+
+.form-group span {
+	color: red;
+	font-size: 13px;
 }

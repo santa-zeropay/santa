@@ -14,4 +14,6 @@ public interface ImageService {
 	public List<ImageVO> getImageByStore(int id);
 	
 	public List<ImageVO> getImageByMenu(int id);
+
+	public int imageDelete(int id);
 }

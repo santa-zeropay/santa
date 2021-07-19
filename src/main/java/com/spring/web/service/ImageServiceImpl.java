@@ -40,5 +40,11 @@ public class ImageServiceImpl implements ImageService{
 		return imageMapper.getImageByMenu(id);
 	}
 
+	@Override
+	public int imageDelete(int id) {
+
+		return imageMapper.imageDelete(id);
+	}
+
 
 }

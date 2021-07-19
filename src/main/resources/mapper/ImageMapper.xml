@@ -21,5 +21,8 @@
 		values
 		(#{uuid},#{store_id},#{fileName},#{uploadPath})
 	</insert>
+		<delete id="imageDelete">
+		DELETE FROM image WHERE menu_id=#{id}
+	</delete>
 
 </mapper>	

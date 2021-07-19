@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,40 +27,48 @@
 					<input type="hidden" name="id" value="<c:out value="${menu.id}"/>" />
 					<div class="form-group">
 						<label for="name">메뉴 이름</label> <input type="text"
-							class="login-input" id="name" name="name"
+							class="login-input" id="name" name="menuname" readonly="readonly"
 							value="<c:out value="${menu.menuname}"/>">
 					</div>
 
 					<div class="form-group">
 						<label for="price">가격</label> <input type="text"
-							class="login-input" id="price" name="price" value="<c:out value="${menu.price}"/>">
+							class="login-input" id="price" name="price"
+							value="<c:out value="${menu.price}"/>">
 					</div>
 
 					<div class="form-group">
 						<label for="discountRate">할인율</label> <input type="text"
-							class="login-input" id="discountRate" name="discountRate"
+							class="login-input" id="discountrate" name="discountrate"
 							value="<c:out value="${menu.discountrate}"/>">
 					</div>
 
 					<div class="form-group">
-						<label for="image">이미지</label> <input type="file"
-							class="login-input" id="image" name="image">
+						<label for="image">이미지</label> 
+						<img src="/user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
+						class="login-input" id="imageList">
 					</div>
 
-					<input class="input_button modify_button" type="submit" value="수정완료"></input> <input
-						class="input_button" type="button"
-						onclick="location.href='deleteMenu?id=${menu.id}'" value="삭제"></input>
+					<input class="input_button modify_button" type="submit"
+						value="수정완료"></input> <input class="input_button delete_button"
+						type="button" onclick="location.href='deleteMenu?id=${menu.id}'"
+						value="삭제"></input>
 
 				</form>
 			</div>
 		</div>
 	</div>
-	<script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
 		$(document).ready(function() {
+
+			var operForm = $("#operForm");
 			//저장하기 버튼(저장하기 기능 작동)
 			$(".modify_button").click(function() {
 				alert("수정완료");
 			});
+
+			
 		});
 	</script>
 

@@ -7,7 +7,9 @@
 	<select id="getMenuListWithImage" resultType="com.spring.web.dto.MenuListAndImageDto">
 		SELECT * FROM menu join image on menu.id=image.menu_id  where menu.store_id=#{id};
 	</select>
-
+	<select id="getMenuWithImage" resultType="com.spring.web.dto.MenuDetailImageDto">
+		SELECT * FROM menu join image on menu.id=image.menu_id  where menu.id=#{id};
+	</select>
 	<select id="getMenuById" resultType="com.spring.web.vo.MenuVO">
 		select * from menu where
 		id=#{id}
@@ -28,8 +30,7 @@
 	<update id="menuUpdate">
 		UPDATE menu set
 		menuname = #{menuname},
-		price =
-		#{price},
+		price =#{price},
 		discountrate = #{discountrate}
 		WHERE id = #{id}
 	</update>

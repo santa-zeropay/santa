@@ -12,7 +12,10 @@
    font-size:50px;
    margin:50px;
 }
-
+.menu-image{
+	width: 100px;
+	height:100px;
+}
 
 .container {
     flex-direction: column;

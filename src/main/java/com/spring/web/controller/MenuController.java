@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring.web.dto.MenuDetailImageDto;
+import com.spring.web.dto.MenuListAndImageDto;
 import com.spring.web.service.ImageService;
 import com.spring.web.service.MenuService;
 import com.spring.web.service.StoreService;
@@ -75,8 +77,8 @@ public class MenuController {
 		int mid = vo.getId();
 		log.info("메뉴의 id : "+mid);
 	
-		MenuVO menu = menuServiceImpl.getMenuById(mid);
-		
+		MenuDetailImageDto menu = menuServiceImpl.getMenuWithImage(mid);
+		log.info("메뉴 : "+menu);
 		model.addAttribute("menu", menu);
 
 	}
@@ -84,21 +86,32 @@ public class MenuController {
 	@GetMapping("/modifyMenu")
 	public String modifyMenu(MenuVO vo,Model model) {
 		int mid = vo.getId();
-		model.addAttribute("menu", menuServiceImpl.getMenuById(mid));
+		MenuDetailImageDto menu = menuServiceImpl.getMenuWithImage(mid);
+		
+		
+		model.addAttribute("menu", menu);
 		return "store/modifyMenu";
 	}
 	@PostMapping("/UpdateMenu")
-	public String update(MenuVO vo) {
-		log.info(""+vo);
+	public String update(MenuVO vo, HttpSession httpSession) {
+		
+		int sid = (int) httpSession.getAttribute("store_id");
+		vo.setStore_id(sid);
+		log.info("이름" +vo);
 		menuServiceImpl.menuUpdate(vo);
 		log.info("수정완료");
 		return "redirect:/store/menuDetail?id="+vo.getId();
 	}
 	
-	@DeleteMapping("/deleteMenu")
+
+	@GetMapping("/deleteMenu")
 	public String deleteMenu(MenuVO vo) {
 		int id=vo.getId();
-		menuServiceImpl.menuDelete(id);
-		return "redirect:/store/meneList";
+		
+		int result1 = imageServiceImpl.imageDelete(id);
+		int result2 = menuServiceImpl.menuDelete(id);
+		log.info("이미지 삭제완료"+result1);
+		log.info("메뉴 삭제완료"+result2);
+		return "redirect:/store/menuList";
 	}
 }
