@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Top-area</title>
-<link rel="stylesheet" href="/resources/css/top-var.css">
+
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 </head>
 <body>
@@ -38,9 +38,6 @@
 				</div>
 			</form>
 		</div>
-
-		<a href="/user/cart" class="list"><i
-			class="fas fa-shopping-cart fa-2x "></i></a>
 
 	</div>
 	<script>

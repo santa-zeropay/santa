@@ -48,7 +48,8 @@ public class ImageController {
 		Date date = new Date();
 		String str = sdf.format(date);
 		System.out.println("str:" + str);
-		String datePath = str.replace("-", File.separator);
+		String datePath = str.replace("-", "/");
+		//File.separator로 하니까 역슬래시 나와서 파일이 생성이 안됨 
 		System.out.println("datePath:" + datePath);
 
 		File uploadPath = new File(uploadFolder, datePath);

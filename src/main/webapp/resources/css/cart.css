@@ -16,6 +16,12 @@
 	width: 100px;
 	height:100px;
 }
+.menu-cart-list{
+	display: flex;
+	justify-content: space-between;
+	padding:40px;
+	font-size:20px;
+}
 
 .container {
     flex-direction: column;
@@ -24,7 +30,7 @@
 .item{
 display:flex;
 justify-content: space-between;
-padding:30px 100px;
+padding:30px 50px;
 }
 .item:first-child{
 background-color: rgba(0,0,0,0.2);

@@ -38,7 +38,7 @@
 	padding: 10px;
 }
 
- a, a:active{
+ .top-area a,.top-area a:active{
 	color:black;
 	text-decoration-line:none;
 }

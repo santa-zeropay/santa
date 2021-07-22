@@ -9,50 +9,61 @@
 }
 
 .big-menu, .big-plus-store {
-	padding-top: 20px;
+	padding-top: 30px;
 	padding-left: 30px;
 	font-weight: bold;
 	font-size: 20px;
 }
-.menu-cart-name{
+
+.joincart {
+	margin: 20px;
+	margin-right: 40px;
+}
+.menu-cart-name {
 	font-weight: bold;
 	font-size: 30px;
 	text-align: center;
-	margin:10px;
+	margin: 10px;
 }
-.menu-cart-detail{
-	font-size:20px;
-	padding:10px;
+
+.menu-cart-detail {
+	font-size: 20px;
+	padding: 10px;
 }
-.menu-cart input{
+
+.menu-cart input {
 	justify-content: flex-end;
 }
+
 .menu-cart {
 	position: fixed;
-	right:10px;
-	bottom:50px;
+	right: 10px;
+	bottom: 50px;
 	margin-right: 30px;
 	background-color: #c7efea;
 	width: 300px;
 	height: 500px;
 }
-.menu-cart-button{
-	
-	position:relative;
-	left:30px;
-	top:280px;
-	height:50px;
+
+.menu-cart-button {
+	position: relative;
+	left: 30px;
+	top: 100px;
+	height: 50px;
 	border-radius: 5px;
 	width: 250px;
 }
-.menu-total{
-	position:relative;
-	left:70px;
-	top:250px;
-	font-size:20px;
+
+.menu-total {
+	position: relative;
+	left: 30px;
+	top: 90px;
+	font-size: 20px;
 }
-.menu-cart-button:hover 
-{background-color: #aaddc9}
+
+.menu-cart-button:hover {
+	background-color: #aaddc9
+}
 
 .main-store-image {
 	margin: 50px;
@@ -68,52 +79,56 @@
 }
 
 .main-store-place {
-	padding:10px;
-	margin:10px;
+	padding: 10px;
+	margin: 10px;
 	font-size: 20px;
 	font-weight: bold;
 }
+
 .menu-list-image, .store-list-image {
 	width: 150px;
 	height: 150px;
 	margin: 20px;
+	margin-right: 50px;
 }
-.menu-list input{
-	position:relative;
-	top:50px;
-	height:40px;
+
+.menu-list input {
+	display: flex;
+	margin: 10px;
+	height: 40px;
 }
 
 .menu-list, .store-list {
-	font-size:20px;
+	font-size: 20px;
 	display: flex;
 	margin: 15px;
 	padding: 15px;
 }
 
- .plus-menu-list{
-	font-size:20px;
-	display:flex;
-	flex-direction:column;
+.plus-menu-list {
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
 	margin: 10px;
 	padding: 15px;
-	
 }
-.plus-menu-im{
-	display:flex;
-	flex-direction:row;
+
+.plus-menu-im {
+	display: flex;
+	flex-direction: row;
 }
-.plus-menu-list input{
-		position:relative;
-		top:70px;
-		width: 150px;
-		height:50px;
+
+.plus-menu-list input {
+	position: relative;
+	top: 70px;
+	width: 150px;
+	height: 50px;
 }
 
 .plus-menu-list ul, .menu-list ul, .store-list ul {
-	font-size:25px;
-	font-weight:bold;
-	padding-top:30px;
+	font-size: 25px;
+	font-weight: bold;
+	padding-top: 30px;
 	display: flex;
 	flex-direction: column;
 }

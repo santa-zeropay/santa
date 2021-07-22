@@ -21,8 +21,7 @@
 		WHERE id=#{id}
 	</select>
 	<insert id="userJoin">
-		insert into user values(#{id}, #{email}, #{password},
-		#{name}, #{role},#{phonenum})
+		insert into user values(#{id},#{email}, #{password},#{name},#{role},#{phonenum})
 	</insert>
 
 

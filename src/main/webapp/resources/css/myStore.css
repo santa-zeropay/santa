@@ -3,9 +3,8 @@
 @import "reset.css";
 @import "top-var.css";
 
-.main-store-image {
-	width: 200px;
-	height: 200px;
+#result_card img {
+	height: 230px;
 	margin:0 150px;
 	padding-left:600px;
 }
@@ -20,14 +19,12 @@
 	font-size: 70px;
 	font-weight: bold;
 }
-
 .main-store-place {
 	font-size: 15px;
 	font-weight: normal;
 }
 
-.menu-list {
-	
+.menu-list {	
 	padding: 30px;
 	padding-left:300px;
 	display: flex;	

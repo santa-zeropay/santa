@@ -5,15 +5,29 @@
 <mapper namespace="com.spring.web.mapper.CartMapper">
 	<select id="getTempCartList"
 		resultType="com.spring.web.dto.MenuCartDto">
-		SELECT menuname,price,count FROM menu join cart on menu.id=cart.menu_id;
+		SELECT cart.id,menuname,price,count FROM menu join cart on
+		menu.id=cart.menu_id;
 	</select>
-		<select id="getCartList"
+	<select id="getCartList"
 		resultType="com.spring.web.dto.MenuCartDto">
-		SELECT menuname,price,count FROM menu join cart on menu.id=cart.menu_id where cart.user_id=#{id};
+		SELECT cart.id,menuname,price,count,menu_id FROM menu join
+		cart on menu.id=cart.menu_id where cart.user_id=#{id};
 	</select>
+
 	<insert id="cartEnroll">
-		insert into cart(id,user_id,menu_id)
-		values (#{id},#{user_id},#{menu_id})
+		insert into cart(id,user_id,menu_id,count)
+		values
+		(#{id},#{user_id},#{menu_id},#{count})
 	</insert>
 
-</mapper>	
+	<delete id="cartDelete">
+		delete from cart where id=#{id};
+	</delete>
+
+	<delete id="cartDeleteByUserId">
+		delete from cart where user_id=#{id};
+	</delete>
+
+
+
+</mapper>

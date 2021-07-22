@@ -50,8 +50,6 @@ public class HomeController {
 			log.info("사람"+user);
 			model.addAttribute("user", user);
 		}
-		
-	
 		List<StoreListAndImageDto> storeListAndImageDtos= storeServiceImpl.getStoreListWithImage(vo);
 		log.info("storeListAndImageDtos는 "+storeListAndImageDtos);
 		log.info("사이즈: "+storeListAndImageDtos.size() );
@@ -61,12 +59,14 @@ public class HomeController {
 		model.addAttribute("pageMaker",new NewPageMakerVO(vo, total));
 	}
 	@GetMapping("/store")
-	public void store(int id,Model model) {
+	public void store(int id,Model model,HttpSession httpSession) {
 
+		int uid = (int) httpSession.getAttribute("id");
+		log.info("uid는~~"+uid);
 		StoreVO store = storeServiceImpl.getStoreById(id);
 		StoreAndImageDto storeAndImageDtos= storeServiceImpl.getStoreWithImage(id);
 		List<MenuListAndImageDto> menuListAndImageDtos=menuServiceImpl.getMenuListWithImage(id);
-		List<MenuCartDto> menuCartDtos = cartServiceImpl.getTempCartList();
+		List<MenuCartDto> menuCartDtos = cartServiceImpl.getCartList(uid);
 		DistVO dvo = new DistVO();
 		int category = store.getCategory();
 		List<StoreVO> storeNotCategory = storeServiceImpl.getStoreListNotCategory(category);
@@ -98,7 +98,7 @@ public class HomeController {
 		List<DistAndImageDto> distImage = distServiceImpl.distWithImage();
 
 		model.addAttribute("store", storeAndImageDtos);
-		model.addAttribute("cart", menuCartDtos);
+		model.addAttribute("carts", menuCartDtos);
 		log.info("cccaarr"+menuCartDtos);
 		model.addAttribute("distImage", distImage);
 		log.info("~~"+distImage);

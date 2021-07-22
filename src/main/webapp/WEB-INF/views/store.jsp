@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <link rel="stylesheet" href="resources/css/store.css">
 </head>
 <body>
-	<jsp:include page="top-var.jsp" flush="false" />
+	<jsp:include page="header.jsp" flush="false" />
 
 	<div class="main-store">
 		<img
@@ -25,28 +26,42 @@
 	</div>
 	<div class="menu-cart" id="tempCartList">
 		<div class="menu-cart-name">~~주문표~~</div>
-		<c:forEach items="${cart}" var="cart">
-		<div class="menu-cart-detail"><c:out value="${cart.menuname}" />
-		<span style="text-decoration:line-through; color:#999999; "><c:out value="${cart.price}" />
-		</span>->
-		<fmt:formatNumber type="number" pattern="0" value="${cart.price*0.9}"  />원</div>
+		<c:forEach items="${carts}" var="cart">
+			<div class="menu-cart-detail">
+				<i class="far fa-times-circle"><input type='hidden' name="id"
+					value='<c:out value="${cart.id}" />'></i>
+				<c:out value="${cart.menuname}" />
+				<span style="text-decoration: line-through; color: #999999;"><c:out
+						value="${cart.price}" /> </span>->
+				<fmt:formatNumber type="number" pattern="0"
+					value="${cart.price*0.9}" />
+				원
+			</div>
 		</c:forEach>
-		<div class="menu-total">최종금액 : 9540원</div>
-		<input type="button" class="menu-cart-button" value="장바구니 담기">
+		<div class="menu-total">최종금액 :</div>
+		<input type="button" class="menu-cart-button" value="결제하기">
 		<!-- <input id="parent" type="text" name="menu-cart"> -->
 	</div>
 	<hr>
 	<div class="big-menu">메뉴</div>
 	<div class="menu-list">
 		<c:forEach items="${menuImage}" var="menu">
-			<img
-				src="user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
-				style="display: block;" class="menu-list-image">
-			<ul>
-				<c:out value="${menu.menuname}" />
-				<c:out value="${menu.price}" />원
-			<input type='button' value='주문표에 넣기' id="tempCart">
-			</ul>
+		<div>
+			<form action="/user/joincart" class="joincart">
+				<img
+					src="user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
+					style="display: block;" class="menu-list-image">
+				<ul>
+					<c:out value="${menu.menuname}" />
+					<c:out value="${menu.price}" />
+					원
+				</ul>
+				<input type='hidden' value='<c:out value="${menu.id}" />'
+					name="menu_id" class="inputMenuId"> <input type="number"
+					min="0" max="100" name="count" value="1" /> <input type='button'
+					value='주문표에 넣기' class="tempCart">
+			</form>
+			</div>
 		</c:forEach>
 	</div>
 	<hr>
@@ -67,21 +82,60 @@
 			</ul>
 		</c:forEach>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 
 	<script>
 		$(document).ready(function() {
 			let tempCartList = $("#tempCartList");
 
 			//장바구니 담기 버튼
-			$("#tempCart").click(function() {
+			$(".tempCart").click(function(e) {
+
 				console.log("dd");
-				tempCartList.append("<c:out value="${menu.menuname}" />");
+				console.log(this.form.menu_id.value);
+				console.log(this.form.count.value);
+
+				$.ajax({
+					url : "/user/joincart",
+					data : {
+						menu_id : this.form.menu_id.value,
+						count : this.form.count.value
+					},
+					type : "POST",
+					success : function(result) {
+						console.log(result);
+						location.reload();
+					},
+					error : function(result) {
+						console.log(result);
+					}
+
+				});
 			});
 
+			$(".fa-times-circle").click(function(e) {
+
+				//	console.dir(this);
+				//	console.dir(this.lastChild.defaultValue);
+
+				$.ajax({
+					url : "/user/deletecart",
+					data : {
+						id : this.lastChild.defaultValue
+					},
+					type : "POST",
+					success : function(result) {
+						console.log(result);
+						location.reload();
+					},
+					error : function(result) {
+						console.log(result);
+					}
+
+				});
+			})
 		});
 	</script>
-
 
 	<script type="text/javascript">
 		function plusStore(store_id) {
@@ -120,5 +174,6 @@
 
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>

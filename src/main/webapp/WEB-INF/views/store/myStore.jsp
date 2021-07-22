@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="/resources/css/myStore.css">
 </head>
 <body>
-	<jsp:include page="../top-var.jsp" flush="false" />
+	<jsp:include page="../header.jsp" flush="false" />
 
 	<div class="main-store">
 		<input type="hidden" name="id" value="<c:out value="${store.id}"/>">
-		<div class="form_section main-store-image">
+		<div class="form_section">
 			<div id="uploadResult"></div>
 		</div>
 		<input type="text" readonly="readonly" id="storename" name="storename"

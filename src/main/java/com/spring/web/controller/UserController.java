@@ -75,19 +75,22 @@ public class UserController {
 
 
 	@PostMapping("/register")
-	public String userJoin(@Valid UserVO vo,StoreVO svo,Errors errors, Model model) {
+	public String userJoin(@Valid UserVO vo, StoreVO svo,Errors errors, Model model) {
 		log.info("join 진입");
-
-		if (errors.hasErrors()) {
-			// 회원가입 실패시, 입력 데이터를 유지
-			model.addAttribute("vo", vo);
-			// 유효성 통과 못한 필드와 메시지를 핸들링
-			Map<String, String> validatorResult = userServiceImpl.validateHandling(errors);
-			for (String key : validatorResult.keySet()) {
-				model.addAttribute(key, validatorResult.get(key));
-			}
-			return "/user/register";
-		}
+		log.info("vo"+vo);
+		log.info("error :"+errors.toString());
+		log.info("svo: "+svo);
+//		if (errors.hasErrors()) {
+//			// 회원가입 실패시, 입력 데이터를 유지
+//			log.info("실패"+vo);
+//			model.addAttribute("vo", vo);
+//			// 유효성 통과 못한 필드와 메시지를 핸들링
+//			Map<String, String> validatorResult = userServiceImpl.validateHandling(errors);
+//			for (String key : validatorResult.keySet()) {
+//				model.addAttribute(key, validatorResult.get(key));
+//			}
+//			return "redirect:/user/register";
+//		}
 		userServiceImpl.userJoin(vo);		
 
 		log.info("join 성공");

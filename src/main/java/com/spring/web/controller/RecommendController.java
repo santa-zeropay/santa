@@ -17,8 +17,11 @@ import com.spring.web.service.MenuService;
 import com.spring.web.service.StoreService;
 import com.spring.web.service.StoreServiceImpl;
 import com.spring.web.service.ThemaService;
+import com.spring.web.service.UserService;
+import com.spring.web.service.UserServiceImpl;
 import com.spring.web.vo.StoreVO;
 import com.spring.web.vo.ThemaVO;
+import com.spring.web.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +36,7 @@ public class RecommendController {
 	
 	@GetMapping("/recommend")
 	public void recommend(Model model) {
+		
 		List<ThemaListAndImageDto> themaListAndImage = themaServiceImpl.getThemaListWithImage();
 		
 		model.addAttribute("themaListAndImage", themaListAndImage);

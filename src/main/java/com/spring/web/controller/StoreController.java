@@ -29,6 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class StoreController {
 
 	private final StoreService storeServiceImpl;
+	private final UserService userServiceImpl;
 
 	@RequestMapping("/myStore")
 	public void myStore(HttpSession httpSession,Model model) {
@@ -40,7 +41,9 @@ public class StoreController {
 
 		//서비스안의 회원정보보기 메서드 호출
 		StoreVO store = storeServiceImpl.getStoreByUserId(id);
+		UserVO user = userServiceImpl.getUserById(id);
 		log.info(""+store);
+		model.addAttribute("user", user);
 		model.addAttribute("store", store);
 	}
 

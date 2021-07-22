@@ -7,13 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>메뉴 수정</title>
-<link rel="stylesheet" href="/resources/css/login.css">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="/resources/css/form.css">
 </head>
 <body>
+	<jsp:include page="../header.jsp" flush="false" />
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="login-form">
@@ -44,9 +41,9 @@
 					</div>
 
 					<div class="form-group">
-						<label for="image">이미지</label> 
-						<img src="/user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
-						class="login-input" id="imageList">
+						<label for="image">이미지</label> <img
+							src="/user/display?fileName=${menu.uploadPath}/s_${menu.uuid}_${menu.fileName}"
+							class="login-input" id="imageList">
 					</div>
 
 					<input class="input_button modify_button" type="submit"
@@ -68,7 +65,6 @@
 				alert("수정완료");
 			});
 
-			
 		});
 	</script>
 

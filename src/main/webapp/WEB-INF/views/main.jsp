@@ -6,22 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Welcome Package</title>
-
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/main.css">
 </head>
 <body>
-	<c:choose>
-		<c:when test="${empty user}">
-			<jsp:include page="top-var2.jsp" flush="false" />
-		</c:when>
-		<c:otherwise>
-			<jsp:include page="top-var.jsp" flush="false" />
-		</c:otherwise>
-	</c:choose>
+<jsp:include page="header.jsp" flush="false" />
+
 	<div class="main-title">STORE</div>
 
 	<div class="store">
@@ -36,7 +25,6 @@
 		</c:forEach>
 	</div>
 
-
 	<!-- 페이지 이름 인터페이스 영역 -->
 	<div class="pageMaker_wrap">
 
@@ -49,13 +37,12 @@
 				</c:if>
 
 				<!-- 페이지 번호 -->
-
 				<c:forEach begin="${pageMaker.pageStart }"
 					end="${pageMaker.pageEnd }" var="num">
-					<li class="pageMaker_btn"><a class="page-link " href="${num}">
-							${num}</a></li>
+					<li
+						class="pageMaker_btn page-item ${pageMaker.vo.pageNum==num?"active":""}"><a
+						 class="page-link" style="color:black"  href="${num}">${num}</a></li>
 				</c:forEach>
-
 				<!-- 다음 버튼 -->
 				<c:if test="${pageMaker.next}">
 					<li class="pageMaker_btn next"><a class="page-link"

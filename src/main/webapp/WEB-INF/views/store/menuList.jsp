@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/resources/css/menuList.css">
 </head>
 <body>
+<jsp:include page="../top-var.jsp" flush="false" />
 	<div id="menu_id">
 		<input type="text" readonly="readonly" id="storename" name="storename"
 			value="<c:out value="${store.storename}"/>">

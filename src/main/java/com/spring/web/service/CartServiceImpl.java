@@ -8,6 +8,7 @@ import com.spring.web.dto.MenuCartDto;
 import com.spring.web.mapper.CartMapper;
 import com.spring.web.mapper.DistMapper;
 import com.spring.web.vo.CartVO;
+import com.spring.web.vo.OrderVO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,5 +37,18 @@ public class CartServiceImpl implements CartService {
 		
 		return cartMapper.getCartList(id);
 	}
+
+	@Override
+	public void cartDelete(int id) {
+		cartMapper.cartDelete(id);
+		
+	}
+
+	@Override
+	public void cartDeleteByUserId(int id) {
+		cartMapper.cartDeleteByUserId(id);
+		
+	}
+
 
 }
